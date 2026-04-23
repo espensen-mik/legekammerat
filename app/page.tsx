@@ -1,65 +1,139 @@
+import Link from "next/link";
 import Image from "next/image";
+import { Hero } from "@/src/components/hero";
+import { Container } from "@/src/components/layout/container";
+import { SectionHeading } from "@/src/components/section-heading";
+import { VideoBlock } from "@/src/components/video-block";
+import { FeaturedCaseTile } from "@/src/components/featured-case-tile";
+
+const partners = [
+  { name: "NORMAL", src: "/Normal_logo.svg" },
+  { name: "Lidl", src: "/lidl_logo.svg" },
+  { name: "Socialpædagogerne", src: "/SL_logo.svg" },
+];
+
+const featuredCases = [
+  {
+    name: "NORMAL",
+    blurb: "Et tæt partnerskab, hvor hverdagsbrand og inkluderende sport skaber synlig glæde.",
+    href: "/cases/normal",
+    imageSrc: "/normal_hero.jpg",
+    toneClassName: "from-zinc-600 via-zinc-800 to-zinc-900",
+  },
+  {
+    name: "Nordea",
+    blurb: "Fokus på social impact gennem lokale aktiviteter, storytelling og fællesskab.",
+    href: "/cases/nordea",
+    imageSrc: "/nordea_hero.jpg",
+    toneClassName: "from-slate-600 via-slate-800 to-zinc-900",
+  },
+  {
+    name: "Lidl",
+    blurb: "Aktivering i øjenhøjde med stærk synlighed og konkrete oplevelser for familier.",
+    href: "/cases/lidl",
+    imageSrc: "/Lidl_hero.jpg",
+    toneClassName: "from-zinc-700 via-zinc-800 to-zinc-900",
+  },
+  {
+    name: "Louis Nielsen",
+    blurb: "Brand og formål forenes i et samarbejde med relationer og reel betydning.",
+    href: "/cases/louis-nielsen",
+    imageSrc: "/louisnielsen_hero.jpg",
+    toneClassName: "from-neutral-700 via-zinc-900 to-black",
+  },
+  {
+    name: "Bridgestone",
+    blurb: "Strategisk samarbejde med fokus på bevægelse, samfundsansvar og lokal aktivering.",
+    href: "#",
+    imageSrc: "/bridgestone_hero.jpg",
+    toneClassName: "from-zinc-600 via-zinc-800 to-zinc-900",
+  },
+  {
+    name: "Uniqlo",
+    blurb: "Partnerskab med fokus på kultur, inklusion og stærke fællesskabsfortællinger.",
+    href: "#",
+    imageSrc: "/uniqlo_hero.jpg",
+    toneClassName: "from-slate-700 via-zinc-800 to-zinc-900",
+  },
+];
 
 export default function Home() {
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <div className="-mt-16 pb-24">
+      <Hero />
+
+      <section className="border-b border-white/10 py-12 sm:py-16">
+        <Container>
+          <div className="flex flex-wrap items-center justify-center gap-10 sm:gap-16">
+            {partners.map((partner) => (
+              <div key={partner.name} className="flex items-center justify-center">
+                <Image
+                  src={partner.src}
+                  alt={`${partner.name} logo`}
+                  width={180}
+                  height={64}
+                  className="h-8 w-auto object-contain opacity-85 sm:h-10"
+                />
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-b border-white/10 py-20 sm:py-28">
+        <Container className="space-y-10">
+          <SectionHeading
+            eyebrow="Featured"
+            title="Et kig ind i universet."
+            description="Filmisk storytelling med fokus på bevægelse, relationer og inkluderende fællesskab."
+          />
+          <VideoBlock
+            title="Partnerfilm"
+            playbackId="MqPyyeDQG02UsU8I373hCGfxLatU00KXIbBQlvaxbgY02I"
+          />
+        </Container>
+      </section>
+
+      <section className="border-y border-white/10 bg-zinc-900 py-20 sm:py-28">
+        <Container className="space-y-8">
+          <SectionHeading
+            eyebrow="Koncept"
+            title="Hvad er Lykkeliga Legekammerat?"
+            description="Et partnerskab for brands, der vil mere end synlighed. I samarbejde med LykkeLiga skaber vi konkrete oplevelser, nærværende aktivering og dokumenterbar samfundsværdi."
+          />
+        </Container>
+      </section>
+
+      <section className="py-20 sm:py-28">
+        <div className="mx-auto w-full max-w-[1500px] space-y-10 px-6 sm:px-10">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHeading
+              eyebrow="Cases"
+              title="Udvalgte partnerskaber."
+              description="Se, hvordan vores samarbejder bliver omsat til stærke resultater."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <Link
+              href="/cases"
+              className="rounded-full border border-white/20 px-5 py-2 text-sm font-medium text-zinc-100 transition-colors hover:border-white"
+            >
+              Se alle cases
+            </Link>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {featuredCases.map((item) => (
+              <FeaturedCaseTile
+                key={item.name}
+                name={item.name}
+                blurb={item.blurb}
+                href={item.href}
+                imageSrc={item.imageSrc}
+                toneClassName={item.toneClassName}
+              />
+            ))}
+          </div>
         </div>
-      </main>
+      </section>
     </div>
   );
 }
