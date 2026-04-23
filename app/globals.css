@@ -19,6 +19,21 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
+.logo-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: logo-marquee 32s linear infinite;
+}
+
+@keyframes logo-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 ::selection {
   background: #f4f4f5;
   color: #09090b;

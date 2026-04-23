@@ -32,14 +32,16 @@ export default async function CasePage({ params }: CasePageProps) {
             {item.videos.map((video) => (
               <div key={video.playbackId} className="space-y-3">
                 <VideoBlock playbackId={video.playbackId} />
-                <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">{video.caption}</p>
+                <p className="border-l-2 border-[#00f4c8]/60 bg-white/[0.03] px-3 py-2 text-sm leading-relaxed text-white/80">
+                  {video.caption}
+                </p>
               </div>
             ))}
           </div>
         ) : (
           <div className="space-y-3">
             <VideoBlock playbackId={item.playbackId} />
-            <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">
+            <p className="border-l-2 border-[#00f4c8]/60 bg-white/[0.03] px-3 py-2 text-sm leading-relaxed text-white/80">
               {item.name} x LykkeLiga - case film
             </p>
           </div>

@@ -1,7 +1,9 @@
- "use client";
+"use client";
 
 import { Container } from "@/src/components/layout/container";
 import { SectionHeading } from "@/src/components/section-heading";
+import { ContactModal } from "@/src/components/contact-modal";
+import { Check } from "lucide-react";
 import { useState } from "react";
 
 const packages = [
@@ -130,7 +132,7 @@ export default function LegekammeratPage() {
 
   return (
     <>
-      <Container className="py-16 sm:py-24">
+      <Container className="py-24 sm:py-28">
         <section className="space-y-16">
           <SectionHeading
             eyebrow="Bliv legekammerat"
@@ -155,7 +157,7 @@ export default function LegekammeratPage() {
 
                 <p className="mt-6 text-zinc-300">{item.description}</p>
 
-                <div className="mt-8 space-y-4">
+                <div className="mt-8 space-y-4 border-t border-white/10 pt-6">
                   <p className="text-sm font-semibold uppercase tracking-[0.16em] text-zinc-200">
                     Pakken inkluderer
                   </p>
@@ -167,7 +169,7 @@ export default function LegekammeratPage() {
                           featureIndex % 2 === 0 ? "bg-white/[0.04]" : "bg-transparent"
                         }`}
                       >
-                      <span className="shrink-0 pt-0.5 text-[#00f4c8]">✓</span>
+                        <Check size={14} className="mt-0.5 shrink-0 text-[#00f4c8]" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -175,13 +177,15 @@ export default function LegekammeratPage() {
                 </div>
 
                 {item.slug === "firmafan" ? (
-                  <button
-                    type="button"
-                    onClick={() => setIsModalOpen(true)}
-                    className="mt-8 rounded-full border border-[#00f4c8]/50 px-5 py-2 text-sm font-medium text-zinc-100 transition-colors hover:border-[#00f4c8]"
-                  >
-                    Bestil her
-                  </button>
+                  <div className="mt-8 pt-2">
+                    <button
+                      type="button"
+                      onClick={() => setIsModalOpen(true)}
+                      className="inline-flex items-center border border-[#00f4c8]/50 bg-black/40 px-5 py-2 text-sm font-medium text-zinc-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#00f4c8]"
+                    >
+                      Bestil nu!
+                    </button>
+                  </div>
                 ) : null}
               </article>
             ))}
@@ -233,78 +237,7 @@ export default function LegekammeratPage() {
         </section>
       </Container>
 
-      {isModalOpen ? (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 p-4">
-          <div className="w-full max-w-lg border border-white/15 bg-zinc-900 p-6 sm:p-8">
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00f4c8]/80">
-                  Kontakt
-                </p>
-                <h3 className="mt-1 text-2xl font-semibold text-zinc-100">Bestil FirmaFan</h3>
-              </div>
-              <button
-                type="button"
-                onClick={() => setIsModalOpen(false)}
-                className="text-sm text-zinc-400 transition-colors hover:text-zinc-100"
-              >
-                Luk
-              </button>
-            </div>
-
-            <form className="mt-6 space-y-4">
-              <div className="space-y-1">
-                <label className="text-sm text-zinc-300">Navn</label>
-                <input
-                  type="text"
-                  placeholder="Dit navn"
-                  className="w-full border border-white/15 bg-zinc-950 px-3 py-2 text-zinc-100 placeholder:text-zinc-500 focus:outline-none"
-                />
-              </div>
-              <div className="space-y-1">
-                <label className="text-sm text-zinc-300">E-mail</label>
-                <input
-                  type="email"
-                  placeholder="navn@virksomhed.dk"
-                  className="w-full border border-white/15 bg-zinc-950 px-3 py-2 text-zinc-100 placeholder:text-zinc-500 focus:outline-none"
-                />
-              </div>
-              <div className="space-y-1">
-                <label className="text-sm text-zinc-300">Virksomhed</label>
-                <input
-                  type="text"
-                  placeholder="Virksomhedsnavn"
-                  className="w-full border border-white/15 bg-zinc-950 px-3 py-2 text-zinc-100 placeholder:text-zinc-500 focus:outline-none"
-                />
-              </div>
-              <div className="space-y-1">
-                <label className="text-sm text-zinc-300">Besked</label>
-                <textarea
-                  placeholder="Fortæl kort om jeres interesse..."
-                  rows={4}
-                  className="w-full border border-white/15 bg-zinc-950 px-3 py-2 text-zinc-100 placeholder:text-zinc-500 focus:outline-none"
-                />
-              </div>
-
-              <div className="flex items-center justify-end gap-3 pt-2">
-                <button
-                  type="button"
-                  onClick={() => setIsModalOpen(false)}
-                  className="border border-white/15 px-4 py-2 text-sm text-zinc-200 transition-colors hover:border-white/40"
-                >
-                  Annuller
-                </button>
-                <button
-                  type="button"
-                  className="border border-[#00f4c8]/50 bg-[#00f4c8]/10 px-4 py-2 text-sm font-medium text-zinc-100"
-                >
-                  Send forespørgsel
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      ) : null}
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="Bestil FirmaFan" />
     </>
   );
 }
