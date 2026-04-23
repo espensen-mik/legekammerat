@@ -28,7 +28,7 @@ export function SiteHeader() {
           </Link>
           <nav className="flex items-center gap-3 text-xs text-zinc-300 sm:gap-5 sm:text-sm">
             <Link href="/cases" className={navLinkClass("/cases")}>
-              Cases
+              Partnere
             </Link>
             <Link href="/kampagner" className={navLinkClass("/kampagner")}>
               Kampagner

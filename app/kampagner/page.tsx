@@ -34,7 +34,19 @@ const campaignFormats = [
 
 const featuredCampaignCases = [
   {
-    category: "Featured campaign film",
+    category: "KampagneFILM",
+    partner: "Nordea",
+    year: "2024",
+    title: "Freya & Laurits skriver sponsorkontrakt med Nordea Bankdirektør",
+    playbackId: "57R1XCb6jKdLdNNkcRKa7wiMuXp8iv02muQnAhS02pqFk",
+    caption: "Både idé, koncept og produktion er udført af LykkeLiga internt.",
+    description:
+      "Det var en kæmpe dag for... alle! Altså den dag, hvor der blevet forhandlet og skrevet kontrakt mellem LykkeLiga og Nordea.",
+    impact:
+      "Også for LykkeLigaspillerne Freya og Laurits, men måske i sær for bankdirektør Mads Skovlund Pedersen. Filmen fra kontraktforhandlingerne blev den mest sete film internt hos Nordea det år - og forhandlingerne resulterede bl.a. i, at Nordea måtte give gratis popcorn til alle til LykkeCup.",
+  },
+  {
+    category: "KampagneFILM",
     partner: "Socialpædagogerne",
     year: "2024",
     title: "Forbundsformanden indkaldes til SponsorUdviklingsSamtale (SUS) med LykkeLiga",
@@ -49,7 +61,20 @@ const featuredCampaignCases = [
     attribution: "Benny Andersen, Forbundsformand",
   },
   {
-    category: "Featured campaign film",
+    category: "KampagneFILM",
+    partner: "Aalborg Håndbold",
+    year: "2022",
+    title: "LykkeLiga Ungdom ydmyger Aalborg Håndbold i århundredets håndboldkamp",
+    playbackId: "i5ZxKAYQJctPwdMHn3EEZ7SbJFyb6aHktQOWdJX01zEQ",
+    caption:
+      "LykkeLigas interne kreative team planlagde, instruerede og klippede produktionen, mens kameraet blev ført af en indkøbt tredjepart.",
+    description:
+      "Der var lagt i kakkelovnen til det helt store drama, da Stefan Madsen og resten af stjernerne fra Aalborg udfordrede LykkeLigas ungdomsspillere.",
+    impact:
+      "Især Henrik Mølgaard havde fået stjernenykker da han så, at LykkeLiga lancerede en ungdomsgren. Dramaet løb dog lidt ud i sandet da Aalborg-stjernerne udvandrede under den ulige kamp i Gigantium.",
+  },
+  {
+    category: "KampagneFILM",
     partner: "Hummel",
     year: "2021",
     title: "Magda & Mølgaard præsenterer Fællesskabstrøje",
@@ -61,7 +86,7 @@ const featuredCampaignCases = [
       "Videoen er planlagt, klippet og produceret af LykkeLigas interne team i tæt koordinering med partneren.",
   },
   {
-    category: "Featured campaign film",
+    category: "KampagneFILM",
     partner: "Hummel",
     year: "2021",
     title: "LykkeLiga og Hummel - Verdens vigtigste aftale",
@@ -187,27 +212,28 @@ export default function KampagnerPage() {
             title="Det har vi skabt sammen med vores partnere"
             description="Udvalgte kampagner produceret af LykkeLigas interne kreative team i samarbejde med stærke partnere."
           />
-          <div className="divide-y divide-white/10">
+          <div className="space-y-6">
             {featuredCampaignCases.map((item, index) => (
-              <article key={item.title} className="py-14 first:pt-0">
-                <div
-                  className={`grid grid-cols-1 gap-10 lg:items-start ${
-                    index % 2 === 1 ? "lg:grid-cols-[0.9fr_1.1fr]" : "lg:grid-cols-[1.1fr_0.9fr]"
-                  }`}
-                >
-                  <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                    <VideoBlock title={item.category} playbackId={item.playbackId} />
+              <article
+                key={item.title}
+                className="bg-[#323629]/45 px-4 py-14 sm:px-6"
+              >
+                <div className="mb-6">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00f4c8]/85">
+                    {item.category}
+                  </p>
+                  <p className="mt-2 text-xs uppercase tracking-[0.2em] text-white/55">
+                    {item.partner} / {item.year}
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+                  <div>
+                    <VideoBlock playbackId={item.playbackId} />
                     <p className="mt-3 text-xs uppercase tracking-[0.16em] text-white/45">{item.caption}</p>
                   </div>
 
-                  <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00f4c8]/85">
-                      {item.category}
-                    </p>
-                    <p className="mt-2 text-xs uppercase tracking-[0.2em] text-white/55">
-                      {item.partner} / {item.year}
-                    </p>
-                    <h3 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">
+                  <div>
+                    <h3 className="text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">
                       {item.title}
                     </h3>
                     <p className="mt-6 text-base leading-relaxed text-white/75">{item.description}</p>
@@ -224,13 +250,6 @@ export default function KampagnerPage() {
                       </>
                     ) : null}
 
-                    <Link
-                      href="/cases"
-                      className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-white transition-all duration-300 hover:gap-3 hover:text-[#00f4c8]"
-                    >
-                      Se flere cases
-                      <ArrowRight size={14} />
-                    </Link>
                   </div>
                 </div>
               </article>
