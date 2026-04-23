@@ -3,82 +3,74 @@ import Image from "next/image";
 import {
   ArrowRight,
   ArrowUpRight,
-  BadgeCheck,
-  Briefcase,
-  CalendarCheck2,
-  Camera,
-  Check,
-  HeartHandshake,
   Mail,
-  Megaphone,
-  Sparkles,
-  Star,
-  Users,
 } from "lucide-react";
-import { FeatureCard } from "@/src/components/feature-card";
 import { Section } from "@/src/components/layout/section";
 import { SectionHeading } from "@/src/components/section-heading";
+import { VideoBlock } from "@/src/components/video-block";
 
-const partnershipBlocks = [
+const partnershipHighlights = [
   {
     title: "Ægte historier",
-    description:
-      "Vi arbejder med virkelige mennesker, ægte følelser og et fællesskab, der kan mærkes i kommunikationen.",
-    Icon: HeartHandshake,
+    description: "Vi arbejder med virkelige mennesker, ægte følelser og et fællesskab, der kan mærkes.",
   },
   {
     title: "Kreativt team",
-    description:
-      "LykkeLiga har interne kreative ressourcer med erfaring fra reklame- og kommunikationsbranchen.",
-    Icon: Sparkles,
+    description: "Interne kreative kræfter med erfaring fra reklame- og kommunikationsbranchen.",
   },
   {
     title: "Aktivering med værdi",
-    description:
-      "Vi skaber kampagner og aktiveringer, der ikke bare ses, men huskes - og giver reel værdi for partneren.",
-    Icon: BadgeCheck,
+    description: "Kampagner og aktiveringer, der ikke bare ses, men huskes - og giver reel værdi.",
   },
 ];
 
-const whatWeCreate = [
-  {
-    title: "Kampagner",
-    description:
-      "Idéer og fortællinger, der kan leve på tværs af platforme og skabe opmærksomhed.",
-    Icon: Megaphone,
-  },
-  {
-    title: "Content",
-    description:
-      "Video, sociale medier og stærke historier, som virksomheder kan bruge aktivt i deres kommunikation.",
-    Icon: Camera,
-  },
-  {
-    title: "Events & aktivering",
-    description:
-      "Oplevelser, deltagelse og nærvær, hvor medarbejdere, kunder eller publikum møder LykkeLiga tæt på.",
-    Icon: CalendarCheck2,
-  },
-  {
-    title: "Employer branding",
-    description:
-      "Indhold og samarbejder, der styrker stolthed, kultur og mening internt i virksomheden.",
-    Icon: Briefcase,
-  },
+const campaignFormats = [
+  "Film",
+  "Social content",
+  "Aktivering",
+  "Historiefortælling",
+  "Employer branding",
 ];
 
-const campaignCases = [
+const featuredCampaignCases = [
   {
-    title: "Kampagne med partner",
-    description: "Fra idé til kampagneunivers med stærk aktivering på tværs af platforme.",
+    category: "Featured campaign film",
+    partner: "Socialpædagogerne",
+    year: "2024",
+    title: "Forbundsformanden indkaldes til SponsorUdviklingsSamtale (SUS) med LykkeLiga",
+    playbackId: "ef6Xug8ju2xs9LSWfOmpNSfGCrs5SXMB4C9dXFCHIoY",
+    caption: "Videoen er produceret af LykkeLigas interne kreative team og leveret i flere formater til forskellige platforme.",
+    description:
+      "Da Socialpædagogerne og LykkeLiga skulle offentliggøre fornyelsen af samarbejde, var der brug for en uformel og hyggelig ramme, som både kunne bruges internt og eksternt. LykkeLigas kreative team udviklede idé og koncept til at afholde SUS med forbundsformand Benny Andersen, LykkeLiga-spillerne Muhammed og Mads samt Rikke Nielsen.",
+    impact:
+      "Filmen blev offentliggjort på både LykkeLigas og Socialpædagogernes SoMe-kanaler og fik 100.000-vis af visninger.",
+    quote:
+      "Videoen med Muhammed og Mads gav os en sød og sjov platform til at snakke både internt og eksternt om vores årelange engagement i LykkeLiga.",
+    attribution: "Benny Andersen, Forbundsformand",
   },
   {
-    title: "Content-samarbejde",
-    description: "Video- og SoMe-formater, der omsætter partnerskabet til autentisk storytelling.",
+    category: "Featured campaign film",
+    partner: "Hummel",
+    year: "2021",
+    title: "Magda & Mølgaard præsenterer Fællesskabstrøje",
+    playbackId: "bgQ4J00R6iIVJTC01OFBnK9PerD4R7acAlZLBY601lpCGs",
+    caption: "Videoen er produceret af LykkeLigas interne kreative team og filmet i samarbejde med ekstern partner.",
+    description:
+      "Fællesskabstrøjen 2021 blev test og fremvist hos Hummel i Aarhus. Power-parret Magda & Mølgaard rockede fotostudiet.",
+    impact:
+      "Videoen er planlagt, klippet og produceret af LykkeLigas interne team i tæt koordinering med partneren.",
   },
   {
-    title: "Aktivering med fællesskab",
-    description: "Nærværende aktiviteter, der skaber engagement hos både medarbejdere og publikum.",
+    category: "Featured campaign film",
+    partner: "Hummel",
+    year: "2021",
+    title: "LykkeLiga og Hummel - Verdens vigtigste aftale",
+    playbackId: "dOu00J8f0002Hi5d3RbJKhf1LLsvITZaNNb100rItwp2j7U",
+    caption: "Produceret af LykkeLigas kreative team i samarbejde med produktionsselskabet Mayday Film.",
+    description:
+      "Da hummel og LykkeLiga fandt sammen i 2021 skulle aftalen naturligvis vises frem til hele verden. Det gjorde vi ved et pressemøde hos Hummel i Aarhus, hvor hele verdenspressen ikke var indkaldt. Hummel bossen måtte have coaching forud for forhandlingerne med de benhårde hunde fra LykkeLiga.",
+    impact:
+      "Henrik Mølgaard måtte forføje sig da de rigtige stjerner dukkede op. LykkeLigas interne kreative team stod for idé, koncept og instruktion, mens Mayday Film producerede. LykkeLiga stod også for samarbejdet med produktionsselskabet og offentliggørelse af materialet.",
   },
 ];
 
@@ -86,17 +78,14 @@ const processSteps = [
   {
     title: "Vi finder idéen",
     text: "Vi definerer vinklen, muligheden og fortællingen sammen.",
-    Icon: Star,
   },
   {
     title: "Vi skaber indholdet",
     text: "Vi udvikler kampagne, content og koncept i tæt samarbejde.",
-    Icon: Sparkles,
   },
   {
     title: "Vi aktiverer og deler",
     text: "Vi bringer idéen i live gennem kanaler, events og storytelling.",
-    Icon: Users,
   },
 ];
 
@@ -148,13 +137,18 @@ const creativeTeam = [
 export default function KampagnerPage() {
   return (
     <div className="bg-gradient-to-b from-black via-zinc-900 to-black">
-      <Section className="pt-28 sm:pt-32">
-        <div className="space-y-8">
+      <Section className="relative overflow-hidden pt-28 sm:pt-36">
+        <div className="absolute inset-x-0 -top-24 h-72 bg-[radial-gradient(circle_at_top,rgba(0,244,200,0.14),transparent_65%)]" />
+        <div className="relative mx-auto max-w-4xl space-y-8">
           <SectionHeading
             eyebrow="Kampagner"
             title="Skab noget, der kan mærkes"
             description="LykkeLiga hjælper virksomheder med at omsætte samarbejde til kampagner, content og oplevelser med ægte mennesker i centrum."
           />
+          <p className="max-w-3xl text-lg leading-relaxed text-white/70">
+            Fra første idé til sidste publicering former vi kampagner, der føles menneskelige, stærke og
+            relevante for både partneren og publikum.
+          </p>
           <div className="flex flex-wrap gap-4">
             <Link
               href="/legekammerat"
@@ -171,85 +165,157 @@ export default function KampagnerPage() {
               <ArrowUpRight size={16} />
             </Link>
           </div>
+          <div className="pt-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/45">Formatoversigt</p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {campaignFormats.map((format) => (
+                <span
+                  key={format}
+                  className="inline-flex items-center border border-white/15 bg-white/[0.02] px-3 py-1 text-xs uppercase tracking-[0.15em] text-white/60"
+                >
+                  {format}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </Section>
 
-      <Section className="border-y border-white/10 bg-zinc-900/35">
-        <div className="space-y-10">
+      <Section>
+        <div className="space-y-14">
+          <SectionHeading
+            title="Det har vi skabt sammen med vores partnere"
+            description="Udvalgte kampagner produceret af LykkeLigas interne kreative team i samarbejde med stærke partnere."
+          />
+          <div className="divide-y divide-white/10">
+            {featuredCampaignCases.map((item, index) => (
+              <article key={item.title} className="py-14 first:pt-0">
+                <div
+                  className={`grid grid-cols-1 gap-10 lg:items-start ${
+                    index % 2 === 1 ? "lg:grid-cols-[0.9fr_1.1fr]" : "lg:grid-cols-[1.1fr_0.9fr]"
+                  }`}
+                >
+                  <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+                    <VideoBlock title={item.category} playbackId={item.playbackId} />
+                    <p className="mt-3 text-xs uppercase tracking-[0.16em] text-white/45">{item.caption}</p>
+                  </div>
+
+                  <div className={index % 2 === 1 ? "lg:order-1" : ""}>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00f4c8]/85">
+                      {item.category}
+                    </p>
+                    <p className="mt-2 text-xs uppercase tracking-[0.2em] text-white/55">
+                      {item.partner} / {item.year}
+                    </p>
+                    <h3 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">
+                      {item.title}
+                    </h3>
+                    <p className="mt-6 text-base leading-relaxed text-white/75">{item.description}</p>
+                    <p className="mt-4 text-base leading-relaxed text-white/70">{item.impact}</p>
+
+                    {item.quote ? (
+                      <>
+                        <blockquote className="mt-8 border-l border-white/30 pl-5 text-lg italic leading-relaxed text-white/90">
+                          &ldquo;{item.quote}&rdquo;
+                        </blockquote>
+                        {item.attribution ? (
+                          <p className="mt-2 pl-5 text-sm text-white/65">- {item.attribution}</p>
+                        ) : null}
+                      </>
+                    ) : null}
+
+                    <Link
+                      href="/cases"
+                      className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-white transition-all duration-300 hover:gap-3 hover:text-[#00f4c8]"
+                    >
+                      Se flere cases
+                      <ArrowRight size={14} />
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section className="border-y border-white/10 bg-zinc-900/20">
+        <div className="space-y-12">
           <SectionHeading
             title="Det her er ikke bare et sponsorat"
             description="Et partnerskab med LykkeLiga er en kreativ samarbejdsmulighed, hvor brand, mennesker og mening mødes."
           />
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {partnershipBlocks.map((item) => (
-              <FeatureCard key={item.title} title={item.title} description={item.description} Icon={item.Icon} />
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            {partnershipHighlights.map((item) => (
+              <article key={item.title} className="border-t border-white/20 pt-5">
+                <h3 className="text-xl font-semibold tracking-tight text-white">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/70">{item.description}</p>
+              </article>
             ))}
           </div>
         </div>
       </Section>
 
       <Section>
-        <div className="space-y-10">
-          <SectionHeading title="Det kan vi skabe sammen" />
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {whatWeCreate.map((item) => (
-              <FeatureCard key={item.title} title={item.title} description={item.description} Icon={item.Icon} />
+        <div className="space-y-12">
+          <SectionHeading
+            title="Det kan vi skabe sammen"
+            description="En fleksibel palette af formater, hvor fortælling, aktivering og forretning hænger sammen."
+          />
+          <div className="grid grid-cols-1 gap-8 border-t border-white/10 pt-8 md:grid-cols-2 lg:grid-cols-4">
+            {campaignFormats.map((item, index) => (
+              <div key={item} className="space-y-3">
+                <p className="text-xs uppercase tracking-[0.22em] text-white/45">
+                  {String(index + 1).padStart(2, "0")}
+                </p>
+                <h3 className="text-xl font-semibold tracking-tight text-white">{item}</h3>
+                <p className="text-sm text-white/65">
+                  Formatet tilpasses partner, platform og fortælling - uden at miste den menneskelige kerne.
+                </p>
+              </div>
             ))}
           </div>
         </div>
       </Section>
 
-      <Section className="border-y border-white/10 bg-zinc-900/35">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center">
+      <Section className="border-y border-white/10 bg-zinc-900/20">
+        <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:items-start">
           <div className="space-y-6">
             <SectionHeading
               title="Skabt af folk, der har prøvet det før"
               description="LykkeLiga har et internt kreativt team med erfaring fra reklame- og kommunikationsbranchen. Det gør det muligt at udvikle idéer, kampagner og content i tæt samarbejde med partneren - fra første brief til offentlig lancering."
             />
-            <ul className="space-y-3 text-white/75">
-              <li className="flex items-center gap-3">
-                <Check size={16} className="text-[#00f4c8]" />
-                Erfaring fra reklamebranchen
-              </li>
-              <li className="flex items-center gap-3">
-                <Check size={16} className="text-[#00f4c8]" />
-                Stærk storytelling
-              </li>
-              <li className="flex items-center gap-3">
-                <Check size={16} className="text-[#00f4c8]" />
-                Fokus på effekt og engagement
-              </li>
-            </ul>
-          </div>
-          <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-900 via-zinc-800/70 to-black p-8 shadow-[0_0_40px_rgba(0,255,180,0.1)]">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00f4c8]/80">
-              Internt kreativt setup
-            </p>
-            <h3 className="mt-3 text-3xl font-semibold tracking-tight text-white">Kreativ kapacitet tæt på jer</h3>
-            <p className="mt-4 leading-relaxed text-white/70">
+            <p className="max-w-xl text-white/70">
               Fra strategi og koncept til produktion og aktivering. Vi bygger idéer sammen med jer,
               så samarbejdet bliver både synligt, relevant og kommercielt stærkt.
             </p>
+          </div>
+          <div className="space-y-3 border-t border-white/20 pt-4 text-sm text-white/70 lg:mt-6">
+            <p>Erfaring fra reklamebranchen</p>
+            <p>Stærk storytelling med ægte mennesker</p>
+            <p>Fokus på effekt, engagement og relationer</p>
           </div>
         </div>
       </Section>
 
       <Section>
-        <div className="space-y-10">
+        <div className="space-y-12">
           <SectionHeading
             title="Teamet bag kampagnerne"
             description="Et lille, erfarent og engageret team, der forstår både kreativt håndværk, kampagneproduktion og samarbejde med partnere."
           />
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 xl:grid-cols-3">
             {creativeTeam.map((person) => (
-              <article
-                key={person.name}
-                className="overflow-hidden border border-white/10 bg-zinc-900/60 backdrop-blur transition-all duration-300 hover:scale-[1.02] hover:border-white/20"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden border-b border-white/10">
-                  <Image src={person.image} alt={person.name} fill className="object-cover" />
+              <article key={person.name} className="group">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-white/10">
+                  <Image
+                    src={person.image}
+                    alt={person.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
                 </div>
-                <div className="p-5">
+                <div className="mt-4">
                   <h3 className="text-2xl font-semibold tracking-tight text-white">{person.name}</h3>
                   <p className="mt-1 text-sm font-medium text-[#9dffe8]">{person.role}</p>
                   <p className="mt-3 text-sm leading-relaxed text-white/70">{person.bio}</p>
@@ -267,43 +333,13 @@ export default function KampagnerPage() {
         </div>
       </Section>
 
-      <Section>
-        <div className="space-y-10">
-          <SectionHeading title="Det har vi skabt sammen med vores partnere" />
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {campaignCases.map((item) => (
-              <article
-                key={item.title}
-                className="rounded-2xl border border-white/10 bg-zinc-900/60 p-5 backdrop-blur transition-all duration-300 hover:scale-[1.02] hover:border-white/20"
-              >
-                <div className="mb-5 aspect-video border border-white/10 bg-gradient-to-br from-zinc-800 to-black" />
-                <h3 className="text-xl font-semibold tracking-tight text-white">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/70">{item.description}</p>
-                <Link
-                  href="/cases"
-                  className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-white transition-colors hover:text-[#00f4c8]"
-                >
-                  Læs mere
-                  <ArrowRight size={14} />
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      <Section className="border-y border-white/10 bg-zinc-900/35">
-        <div className="space-y-10">
+      <Section className="border-y border-white/10 bg-zinc-900/20">
+        <div className="space-y-12">
           <SectionHeading title="Sådan arbejder vi sammen" />
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {processSteps.map((step, index) => (
-              <article key={step.title} className="rounded-2xl border border-white/10 bg-zinc-900/60 p-6">
-                <div className="mb-4 flex items-center gap-3">
-                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/20 text-xs text-white/80">
-                    {index + 1}
-                  </span>
-                  <step.Icon size={16} className="text-[#00f4c8]" />
-                </div>
+              <article key={step.title} className="border-l border-white/20 pl-5">
+                <p className="text-xs uppercase tracking-[0.22em] text-white/45">{String(index + 1).padStart(2, "0")}</p>
                 <h3 className="text-xl font-semibold tracking-tight text-white">{step.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-white/70">{step.text}</p>
               </article>
@@ -312,11 +348,11 @@ export default function KampagnerPage() {
         </div>
       </Section>
 
-      <section className="px-6 pb-10 pt-24 sm:px-10">
-        <div className="mx-auto max-w-7xl border border-white/10 bg-gradient-to-r from-zinc-900 via-zinc-900/90 to-black p-8 shadow-[0_0_40px_rgba(0,255,180,0.1)] sm:p-12">
+      <section className="px-6 pb-14 pt-24 sm:px-10">
+        <div className="mx-auto max-w-7xl border border-white/10 bg-gradient-to-r from-zinc-900/85 via-zinc-900/60 to-black/80 p-8 sm:p-12">
           <div className="space-y-6">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00f4c8]/80">Klar til dialog</p>
-            <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-6xl">
+            <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
               Skal vi skabe noget sammen?
             </h2>
             <p className="max-w-3xl text-lg leading-relaxed text-white/70">
