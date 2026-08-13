@@ -11,6 +11,7 @@ export type Case = {
   description: string;
   playbackId: string;
   coverImage?: string;
+  logoSrc?: string;
   videos?: CaseVideo[];
 };
 
@@ -24,6 +25,7 @@ export const cases: Case[] = [
       "LykkeLiga og NORMAL har et helt og aldeles unikt partnerskab. Et tæt tæt parløb, der skaber uendelig lykke",
     playbackId: "MqPyyeDQG02UsU8I373hCGfxLatU00KXIbBQlvaxbgY02I",
     coverImage: "/normal_hero.jpg",
+    logoSrc: "/Logo/NORMAL_Logo.svg",
     videos: [
       {
         playbackId: "jsDP1GZFsK51mY9zJze00epIsAlFH8mDMqf1Va02QR01Z8",
@@ -51,6 +53,7 @@ export const cases: Case[] = [
       "Nordea styrkede sin lokale tilstedeværelse gennem events, medarbejderfrivillighed og langsigtet støtte.",
     playbackId: "57R1XCb6jKdLdNNkcRKa7wiMuXp8iv02muQnAhS02pqFk",
     coverImage: "/nordea_hero.jpg",
+    logoSrc: "/Logo/nordea_logo.svg",
   },
   {
     slug: "lidl",
@@ -61,6 +64,7 @@ export const cases: Case[] = [
       "Med Lidl blev legekammerat-konceptet omsat til kampagner, aktiveringer og stærk synlighed i hverdagen.",
     playbackId: "MqPyyeDQG02UsU8I373hCGfxLatU00KXIbBQlvaxbgY02I",
     coverImage: "/Lidl_hero.jpg",
+    logoSrc: "/Logo/Lidl_logo_white.svg",
   },
   {
     slug: "louis-nielsen",
@@ -70,7 +74,7 @@ export const cases: Case[] = [
     description:
       "Louis Nielsen bidrog til at løfte fortællingen om inklusion gennem et simpelt, tydeligt og engagerende samarbejde.",
     playbackId: "MqPyyeDQG02UsU8I373hCGfxLatU00KXIbBQlvaxbgY02I",
-    coverImage: undefined,
+    coverImage: "/louisnielsen_hero.jpg",
   },
 ];
 

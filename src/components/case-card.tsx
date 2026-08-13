@@ -22,6 +22,18 @@ export function CaseCard({ item }: CaseCardProps) {
               sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover"
             />
+            <div className="absolute inset-0 bg-black/45" />
+            {item.logoSrc ? (
+              <div className="absolute inset-0 flex items-center justify-center p-8">
+                <Image
+                  src={item.logoSrc}
+                  alt={`${item.name} logo`}
+                  width={220}
+                  height={80}
+                  className="h-12 w-auto max-w-[60%] object-contain brightness-0 invert sm:h-14"
+                />
+              </div>
+            ) : null}
           </div>
         ) : (
           <div className="flex aspect-video w-full items-center justify-center border border-dashed border-white/20 bg-zinc-950 text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500">

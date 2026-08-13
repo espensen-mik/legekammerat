@@ -17,44 +17,90 @@ const partners = [
   { name: "Hummel", src: "/Logo/hummel.svg", logoClassName: "h-9 sm:h-11", href: "#" },
 ];
 
-const modelOverview = [
+const firmafanOverview = [
   {
     label: "Firmafan",
-    title: "Firmafan",
-    price: "Fra 5.000 kr",
-    bullets: ["Bronze, Sølv eller Guld", "FanPost 2 gange årligt", "Grafik: Vi støtter LykkeLiga"],
+    title: "Bronze",
+    price: "5.000 kr / år",
+    bullets: [
+      "Grafik: “Vi støtter LykkeLiga”",
+      "2 årlige FanPost-hilsner",
+    ],
     href: "/legekammerat#firmafan-bronze",
     Icon: Heart,
   },
   {
+    label: "Firmafan",
+    title: "Sølv",
+    price: "10.000 kr / år",
+    bullets: [
+      "Alt i Bronze",
+      "5 x billetter til LykkeCup",
+      "Logo på sponsorsiden",
+    ],
+    href: "/legekammerat#firmafan-soelv",
+    Icon: Star,
+  },
+  {
+    label: "Firmafan",
+    title: "Guld",
+    price: "25.000 kr / år",
+    bullets: [
+      "Alt i Sølv",
+      "T-shirt + støttediplom",
+      "10 autografpostkort",
+    ],
+    href: "/legekammerat#firmafan-guld",
+    Icon: Sparkles,
+  },
+];
+
+const partnerOverview = [
+  {
     label: "Partneraftale",
     title: "Liga-ven",
-    price: "75.000 kr",
-    bullets: ["Inkl. Firmafan Guld", "Omtale på SoMe", "VIP-billetter til LykkeCup"],
+    price: "75.000 kr / år",
+    bullets: [
+      "Inkl. Firmafan Guld",
+      "Omtale på hjemmeside og SoMe",
+      "2 x VIP-billetter til LykkeCup",
+    ],
     href: "/legekammerat#liga-ven",
-    Icon: Star,
+    Icon: Users,
   },
   {
     label: "Partneraftale",
     title: "Ligasponsor",
-    price: "150.000 kr",
-    bullets: ["VIP Lykke og Lagkage", "Aktiviteter med børnene", "Eksponering på SoMe"],
+    price: "150.000 kr / år",
+    bullets: [
+      "VIP Lykke og Lagkage",
+      "Aktiviteter med børnene",
+      "Eksponering på SoMe",
+    ],
     href: "/legekammerat#ligasponsor",
     Icon: Sparkles,
   },
   {
     label: "Partneraftale",
     title: "Legeaftale",
-    price: "Min. 250.000 kr",
-    bullets: ["Synlighed til LykkeCup", "Årligt foredrag", "Kampagner med børnene"],
+    price: "Min. 250.000 kr / år",
+    bullets: [
+      "Synlighed til LykkeCup",
+      "1 årligt foredrag",
+      "Kampagner med børnene",
+    ],
     href: "/legekammerat#legeaftale",
-    Icon: Users,
+    Icon: Star,
   },
   {
     label: "Partneraftale",
     title: "Legekammerat",
-    price: "Min. 500.000 kr",
-    bullets: ["Aktiv plads i familien", "Løbende fælles planlægning", "Hjertesag i hele organisationen"],
+    price: "Min. 500.000 kr / år",
+    bullets: [
+      "Aktiv plads i LykkeLiga-familien",
+      "Løbende fælles planlægning",
+      "Hjertesag i hele organisationen",
+    ],
     href: "/legekammerat#legekammerat",
     Icon: Crown,
     featured: true,
@@ -114,27 +160,66 @@ export default function Home() {
       <Hero />
 
       <Section className="py-24 sm:py-28">
-        <div className="space-y-10">
+        <div className="space-y-14">
           <SectionHeading
-            eyebrow="Partnerskabsmodeller overblik"
+            eyebrow="Sponsormodeller"
             title="Velkommen i en helt anden liga"
-            description="Vi skelner mellem Firmafan og Partneraftaler - to former for støtte, der begge skaber lykkelige øjeblikke."
+            description="Vi skelner mellem to former for støtte: Firmafan og Partneraftaler. Takket være din støtte kan vi skabe lykkelige øjeblikke og fællesskaber i hele landet."
           />
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-5">
-            {modelOverview.map((item) => (
-              <ModelCard
-                key={item.title}
-                label={item.label}
-                title={item.title}
-                price={item.price}
-                bullets={item.bullets}
-                href={item.href}
-                Icon={item.Icon}
-                featured={item.featured}
-                badge={item.badge}
-              />
-            ))}
+
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <h3 className="text-2xl font-semibold tracking-tight text-white">Firmafans</h3>
+              <p className="max-w-3xl text-sm leading-relaxed text-white/65">
+                Som firmafan træder din virksomhed ind i LykkeLigas B2B Fanklub med virksomheder fra hele landet.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+              {firmafanOverview.map((item) => (
+                <ModelCard
+                  key={item.title}
+                  label={item.label}
+                  title={item.title}
+                  price={item.price}
+                  bullets={item.bullets}
+                  href={item.href}
+                  Icon={item.Icon}
+                />
+              ))}
+            </div>
           </div>
+
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <h3 className="text-2xl font-semibold tracking-tight text-white">PartnerPakker</h3>
+              <p className="max-w-3xl text-sm leading-relaxed text-white/65">
+                Aftaler for dem, der gerne vil give lidt ekstra og blive en synlig, aktiv del af LykkeLigas hverdag.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+              {partnerOverview.map((item) => (
+                <ModelCard
+                  key={item.title}
+                  label={item.label}
+                  title={item.title}
+                  price={item.price}
+                  bullets={item.bullets}
+                  href={item.href}
+                  Icon={item.Icon}
+                  featured={item.featured}
+                  badge={item.badge}
+                />
+              ))}
+            </div>
+          </div>
+
+          <Link
+            href="/legekammerat"
+            className="inline-flex items-center gap-2 text-sm font-medium text-white transition-colors hover:text-[#00f4c8]"
+          >
+            Se alle sponsormodeller
+            <ArrowRight size={16} />
+          </Link>
         </div>
       </Section>
 
