@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import { SiteHeader } from "@/src/components/site-header";
+import { SiteFooter } from "@/src/components/site-footer";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta",
   subsets: ["latin"],
 });
 
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Lykkeliga Legekammerat",
-  description: "Cinematic showcase for LykkeLiga partnerships.",
+  description: "Kommercielle partnerskaber med LykkeLiga.",
 };
 
 export default function RootLayout({
@@ -25,12 +26,13 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      lang="da"
+      className={`${plusJakarta.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-zinc-950 text-zinc-50">
+      <body className="flex min-h-full flex-col bg-[#07111d] text-zinc-50">
         <SiteHeader />
-        <main className="flex-1 pt-16">{children}</main>
+        <main className="flex-1 pt-[108px]">{children}</main>
+        <SiteFooter />
       </body>
     </html>
   );

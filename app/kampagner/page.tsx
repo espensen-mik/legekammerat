@@ -160,8 +160,8 @@ const creativeTeam = [
 
 export default function KampagnerPage() {
   return (
-    <div className="bg-gradient-to-b from-black via-zinc-900 to-black">
-      <Section className="relative overflow-hidden pt-28 sm:pt-36">
+    <div className="bg-[#07111d]">
+      <Section className="relative overflow-hidden pt-16 sm:pt-20">
         <div className="absolute inset-x-0 -top-24 h-72 bg-[radial-gradient(circle_at_top,rgba(0,244,200,0.14),transparent_65%)]" />
         <div className="relative mx-auto max-w-4xl space-y-8">
           <SectionHeading
@@ -176,14 +176,14 @@ export default function KampagnerPage() {
           <div className="flex flex-wrap gap-4">
             <Link
               href="/legekammerat"
-              className="inline-flex items-center gap-2 border border-[#00f4c8]/50 bg-[#00f4c8]/10 px-5 py-2 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-[#00f4c8]"
+              className="inline-flex items-center gap-2 rounded-full bg-[#00b3a4] px-5 py-2 text-sm font-semibold text-white hover:bg-[#00c9b8]"
             >
               Book en snak
               <ArrowRight size={16} />
             </Link>
             <Link
               href="/cases"
-              className="inline-flex items-center gap-2 border border-white/20 px-5 py-2 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white/40"
+              className="inline-flex items-center gap-2 rounded-full border border-white/25 px-5 py-2 text-sm font-semibold text-white hover:border-white"
             >
               Se partnere
               <ArrowUpRight size={16} />
@@ -215,7 +215,7 @@ export default function KampagnerPage() {
             {featuredCampaignCases.map((item, index) => (
               <article
                 key={item.title}
-                className="bg-[#323629]/45 px-4 py-14 sm:px-6"
+                className="bg-[#0f2438] px-4 py-14 sm:px-6"
               >
                 <div className="mb-6">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00f4c8]/85">
@@ -257,7 +257,7 @@ export default function KampagnerPage() {
         </div>
       </Section>
 
-      <Section className="border-y border-white/10 bg-zinc-900/20">
+      <Section className="bg-[#0a1c2e]">
         <div className="space-y-12">
           <SectionHeading
             title="Det her er ikke bare et sponsorat"
@@ -296,7 +296,7 @@ export default function KampagnerPage() {
         </div>
       </Section>
 
-      <Section className="border-y border-white/10 bg-zinc-900/20">
+      <Section className="bg-[#0a1c2e]">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:items-start">
           <div className="space-y-6">
             <SectionHeading
@@ -351,7 +351,7 @@ export default function KampagnerPage() {
         </div>
       </Section>
 
-      <Section className="border-y border-white/10 bg-zinc-900/20">
+      <Section className="bg-[#0a1c2e]">
         <div className="space-y-12">
           <SectionHeading title="Sådan arbejder vi sammen" />
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -367,7 +367,7 @@ export default function KampagnerPage() {
       </Section>
 
       <section className="px-6 pb-14 pt-24 sm:px-10">
-        <div className="mx-auto max-w-7xl border border-white/10 bg-gradient-to-r from-zinc-900/85 via-zinc-900/60 to-black/80 p-8 sm:p-12">
+        <div className="mx-auto max-w-7xl bg-[#123347] p-8 sm:p-12">
           <div className="space-y-6">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00f4c8]/80">Klar til dialog</p>
             <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
@@ -379,14 +379,14 @@ export default function KampagnerPage() {
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/legekammerat"
-                className="inline-flex items-center gap-2 border border-[#00f4c8]/50 bg-[#00f4c8]/10 px-5 py-2 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-[#00f4c8]"
+                className="inline-flex items-center gap-2 rounded-full bg-[#00b3a4] px-5 py-2 text-sm font-semibold text-white hover:bg-[#00c9b8]"
               >
                 Book møde
                 <ArrowRight size={16} />
               </Link>
               <Link
                 href="/legekammerat"
-                className="inline-flex items-center gap-2 border border-white/20 px-5 py-2 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white/40"
+                className="inline-flex items-center gap-2 rounded-full border border-white/25 px-5 py-2 text-sm font-semibold text-white hover:border-white"
               >
                 Se partnerskaber
                 <ArrowUpRight size={16} />

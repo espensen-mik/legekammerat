@@ -203,7 +203,7 @@ function PackageCard({
   onOrder?: () => void;
 }) {
   return (
-    <article id={item.slug} className="border border-white/15 bg-zinc-800/40 p-7">
+    <article id={item.slug} className="bg-[#0f2438] p-7">
       <div className="space-y-2">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00f4c8]/80">{label}</p>
         <h3 className="text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">{item.title}</h3>
@@ -241,13 +241,86 @@ function PackageCard({
           <button
             type="button"
             onClick={onOrder}
-            className="inline-flex items-center border border-[#00f4c8]/50 bg-black/40 px-5 py-2 text-sm font-medium text-zinc-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#00f4c8]"
+            className="inline-flex items-center rounded-full bg-[#00b3a4] px-5 py-2 text-sm font-semibold text-white hover:bg-[#00c9b8]"
           >
             Bestil nu!
           </button>
         </div>
       ) : null}
     </article>
+  );
+}
+
+function OverviewGroup({
+  title,
+  columns,
+  rows,
+}: {
+  title: string;
+  columns: { slug: string; title: string }[];
+  rows: { feature: string; includedIn: string[] }[];
+}) {
+  const visibleRows = rows.filter((row) => columns.some((column) => row.includedIn.includes(column.slug)));
+
+  return (
+    <div className="space-y-4">
+      <h4 className="text-lg font-semibold tracking-tight text-zinc-100">{title}</h4>
+
+      <div className="space-y-3 md:hidden">
+        {visibleRows.map((row) => (
+          <div key={`${title}-${row.feature}`} className="border-t border-white/10 pt-3">
+            <p className="text-sm text-zinc-300">{row.feature}</p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {columns.map((column) => {
+                const included = row.includedIn.includes(column.slug);
+                return (
+                  <span
+                    key={`${row.feature}-${column.slug}`}
+                    className={`text-xs ${included ? "text-[#99ffe9]" : "text-zinc-600"}`}
+                  >
+                    {included ? "✓" : "-"} {column.title}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <table className="hidden w-full table-fixed border-collapse text-left md:table">
+        <thead>
+          <tr className="border-b border-white/10 text-sm text-zinc-300">
+            <th className="w-[36%] px-2 py-3 font-medium sm:px-3">Indhold</th>
+            {columns.map((column) => (
+              <th key={column.slug} className="px-1 py-3 text-center text-xs font-medium leading-tight sm:px-2 sm:text-sm">
+                {column.title}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {visibleRows.map((row, rowIndex) => (
+            <tr
+              key={`${title}-${row.feature}`}
+              className={`border-b border-white/5 text-sm text-zinc-200 ${
+                rowIndex % 2 === 0 ? "bg-white/[0.03]" : "bg-transparent"
+              }`}
+            >
+              <td className="px-2 py-3 leading-snug text-zinc-300 sm:px-3">{row.feature}</td>
+              {columns.map((column) => (
+                <td key={`${row.feature}-${column.slug}`} className="px-1 py-3 text-center sm:px-2">
+                  {row.includedIn.includes(column.slug) ? (
+                    <span className="text-[#00f4c8]">✓</span>
+                  ) : (
+                    <span className="text-zinc-600">-</span>
+                  )}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
@@ -305,47 +378,22 @@ export default function LegekammeratPage() {
             ))}
           </div>
 
-          <section className="mx-auto max-w-4xl space-y-6 border border-white/15 bg-zinc-800/30 p-5 sm:p-8">
+          <section className="mx-auto max-w-4xl space-y-10 bg-[#0f2438] p-5 sm:p-8">
             <div className="space-y-2">
               <h3 className="text-2xl font-semibold tracking-tight text-zinc-100">Overblik</h3>
               <p className="text-zinc-300">Et hurtigt overblik over, hvad der er inkluderet i sponsor-modellerne.</p>
             </div>
 
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[1100px] border-collapse text-left">
-                <thead>
-                  <tr className="border-b border-white/10 text-sm text-zinc-300">
-                    <th className="px-4 py-3 font-medium">Indhold</th>
-                    {overviewColumns.map((column) => (
-                      <th key={column.slug} className="whitespace-nowrap px-4 py-3 font-medium">
-                        {column.title}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {overviewRows.map((row, rowIndex) => (
-                    <tr
-                      key={row.feature}
-                      className={`border-b border-white/5 text-sm text-zinc-200 ${
-                        rowIndex % 2 === 0 ? "bg-white/[0.03]" : "bg-transparent"
-                      }`}
-                    >
-                      <td className="px-4 py-3 text-zinc-300">{row.feature}</td>
-                      {overviewColumns.map((column) => (
-                        <td key={`${row.feature}-${column.slug}`} className="px-4 py-3 text-center">
-                          {row.includedIn.includes(column.slug) ? (
-                            <span className="text-[#00f4c8]">✓</span>
-                          ) : (
-                            <span className="text-zinc-600">-</span>
-                          )}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <OverviewGroup
+              title="Firmafans"
+              columns={overviewColumns.filter((column) => column.slug.startsWith("firmafan-"))}
+              rows={overviewRows}
+            />
+            <OverviewGroup
+              title="PartnerPakker"
+              columns={overviewColumns.filter((column) => !column.slug.startsWith("firmafan-"))}
+              rows={overviewRows}
+            />
           </section>
         </section>
       </Container>

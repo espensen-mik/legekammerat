@@ -10,7 +10,7 @@ type FeatureCardProps = {
 export function FeatureCard({ title, description, Icon, className = "" }: FeatureCardProps) {
   return (
     <article
-      className={`rounded-2xl border border-white/10 bg-zinc-900/60 p-6 backdrop-blur transition-all duration-300 hover:scale-[1.02] hover:border-white/20 ${className}`}
+      className={`border border-white/10 bg-[#0f2438] p-6 ${className}`}
     >
       <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-black/30 text-[#00f4c8]">
         <Icon size={18} />

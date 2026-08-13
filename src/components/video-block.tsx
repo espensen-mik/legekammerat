@@ -24,7 +24,7 @@ export function VideoBlock({ title, playbackId }: VideoBlockProps) {
         <MuxPlayer
           playbackId={playbackId}
           streamType="on-demand"
-          accentColor="#00f4c8"
+          accentColor="#00b3a4"
           className="aspect-video w-full"
         />
       </div>
