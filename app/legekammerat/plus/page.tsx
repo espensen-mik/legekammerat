@@ -1,10 +1,5 @@
-import { PackagePage } from "@/src/components/package-page";
+import { redirect } from "next/navigation";
 
 export default function PlusPage() {
-  return (
-    <PackagePage
-      title="Plus"
-      description="For jer, der ønsker et bredere setup med mere kampagnekraft og engagement."
-    />
-  );
+  redirect("/legekammerat#liga-ven");
 }

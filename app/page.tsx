@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, Crown, Heart, Sparkles, Star } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Crown, Heart, Sparkles, Star, Users } from "lucide-react";
 import { Hero } from "@/src/components/hero";
 import { Section } from "@/src/components/layout/section";
 import { SectionHeading } from "@/src/components/section-heading";
@@ -19,38 +19,46 @@ const partners = [
 
 const modelOverview = [
   {
-    label: "Partnerskabsmodel",
-    title: "FirmaFan",
-    price: "10.000 kr",
-    bullets: ["Synlig støtte", "Med i fanfællesskab", "SoMe & grafik"],
-    href: "/legekammerat#firmafan",
+    label: "Firmafan",
+    title: "Firmafan",
+    price: "Fra 5.000 kr",
+    bullets: ["Bronze, Sølv eller Guld", "FanPost 2 gange årligt", "Grafik: Vi støtter LykkeLiga"],
+    href: "/legekammerat#firmafan-bronze",
     Icon: Heart,
   },
   {
-    label: "Partnerskabsmodel",
-    title: "LigaSponsor",
-    price: "50.000 kr",
-    bullets: ["Mere synlighed", "VIP adgang", "Event deltagelse"],
-    href: "/legekammerat#ligasponsor",
+    label: "Partneraftale",
+    title: "Liga-ven",
+    price: "75.000 kr",
+    bullets: ["Inkl. Firmafan Guld", "Omtale på SoMe", "VIP-billetter til LykkeCup"],
+    href: "/legekammerat#liga-ven",
     Icon: Star,
   },
   {
-    label: "Partnerskabsmodel",
-    title: "Legeaftale",
-    price: "250.000 kr",
-    bullets: ["Egen aktivering", "Kampagner med LykkeLiga", "Events med spillere"],
-    href: "/legekammerat#legeaftale",
+    label: "Partneraftale",
+    title: "Ligasponsor",
+    price: "150.000 kr",
+    bullets: ["VIP Lykke og Lagkage", "Aktiviteter med børnene", "Eksponering på SoMe"],
+    href: "/legekammerat#ligasponsor",
     Icon: Sparkles,
   },
   {
-    label: "Partnerskabsmodel",
-    title: "LegeKammerat",
-    price: "500.000+ kr",
-    bullets: ["Tæt partnerskab", "Strategisk samarbejde", "Fuld adgang & co-creation"],
+    label: "Partneraftale",
+    title: "Legeaftale",
+    price: "Min. 250.000 kr",
+    bullets: ["Synlighed til LykkeCup", "Årligt foredrag", "Kampagner med børnene"],
+    href: "/legekammerat#legeaftale",
+    Icon: Users,
+  },
+  {
+    label: "Partneraftale",
+    title: "Legekammerat",
+    price: "Min. 500.000 kr",
+    bullets: ["Aktiv plads i familien", "Løbende fælles planlægning", "Hjertesag i hele organisationen"],
     href: "/legekammerat#legekammerat",
     Icon: Crown,
     featured: true,
-    badge: "Mest ambitiøse valg",
+    badge: "Tætteste partnerskab",
   },
 ];
 
@@ -109,10 +117,10 @@ export default function Home() {
         <div className="space-y-10">
           <SectionHeading
             eyebrow="Partnerskabsmodeller overblik"
-            title="Hvilken rolle vil I spille?"
-            description="Fire niveauer. Et fælles mål: at skabe lykkelige øjeblikke."
+            title="Velkommen i en helt anden liga"
+            description="Vi skelner mellem Firmafan og Partneraftaler - to former for støtte, der begge skaber lykkelige øjeblikke."
           />
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-5">
             {modelOverview.map((item) => (
               <ModelCard
                 key={item.title}
@@ -184,8 +192,8 @@ export default function Home() {
         <div className="space-y-8">
           <SectionHeading
             eyebrow="Koncept"
-            title="Hvad er Lykkeliga Legekammerat?"
-            description="Et partnerskab for brands, der vil mere end synlighed. I samarbejde med LykkeLiga skaber vi konkrete oplevelser, nærværende aktivering og dokumenterbar samfundsværdi."
+            title="Støtte med hjertet"
+            description="LykkeLiga er et nationalt håndboldfællesskab for børn og unge med funktionsnedsættelser. Takket være din støtte kan vi fortsætte vores arbejde med at skabe lykkelige øjeblikke og fællesskaber i hele landet."
           />
         </div>
       </Section>
@@ -194,7 +202,7 @@ export default function Home() {
         <div className="space-y-10">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <SectionHeading
-              eyebrow="Cases"
+              eyebrow="Partnere"
               title="Udvalgte partnerskaber."
               description="Se, hvordan vores samarbejder bliver omsat til stærke resultater."
             />
@@ -202,7 +210,7 @@ export default function Home() {
               href="/cases"
               className="group inline-flex items-center gap-2 text-sm font-medium text-zinc-100 transition-colors hover:text-[#00f4c8]"
             >
-              Se alle cases
+              Se alle partnere
               <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
           </div>
@@ -243,7 +251,7 @@ export default function Home() {
                 href="/cases"
                 className="inline-flex items-center gap-2 border border-white/20 px-5 py-2 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white/40"
               >
-                Se cases
+                Se partnere
                 <ArrowUpRight size={16} />
               </Link>
             </div>

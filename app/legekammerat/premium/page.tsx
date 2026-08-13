@@ -1,10 +1,5 @@
-import { PackagePage } from "@/src/components/package-page";
+import { redirect } from "next/navigation";
 
 export default function PremiumPage() {
-  return (
-    <PackagePage
-      title="Premium"
-      description="For jer, der vil have den mest ambitiøse løsning med maksimal strategisk effekt."
-    />
-  );
+  redirect("/legekammerat#legekammerat");
 }

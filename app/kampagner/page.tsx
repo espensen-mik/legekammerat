@@ -11,19 +11,18 @@ import { VideoBlock } from "@/src/components/video-block";
 
 const partnershipHighlights = [
   {
-    title: "Ægte historier",
-    description: "Vi arbejder med virkelige mennesker, ægte følelser og et fællesskab, der kan mærkes.",
+    title: "Samfundsmæssig forskel",
+    description: "Vær med til at gøre en reel forskel for børn og unge med funktionsnedsættelser.",
   },
   {
-    title: "Kreativt team",
-    description: "Interne kreative kræfter med erfaring fra reklame- og kommunikationsbranchen.",
+    title: "Autentisk fortælling",
+    description: "Bliv en del af en stærk og autentisk fortælling med glæde, fællesskab og positiv energi.",
   },
   {
-    title: "Aktivering med værdi",
-    description: "Kampagner og aktiveringer, der ikke bare ses, men huskes - og giver reel værdi.",
+    title: "Kreativ synlighed",
+    description: "Genvej til kreativ synlighed sammen med en ekstraordinær målgruppe - og LykkeLigas interne team.",
   },
 ];
-
 const campaignFormats = [
   "Film",
   "Social content",
@@ -168,11 +167,11 @@ export default function KampagnerPage() {
           <SectionHeading
             eyebrow="Kampagner"
             title="Skab noget, der kan mærkes"
-            description="LykkeLiga hjælper virksomheder med at omsætte samarbejde til kampagner, content og oplevelser med ægte mennesker i centrum."
+            description="Med en Partneraftale har din virksomhed mulighed for at blive en synlig og aktiv del af LykkeLigas hverdag. Det er også på dette niveau, at vi åbner op for aktiviteter og synlighed med vores spillere."
           />
           <p className="max-w-3xl text-lg leading-relaxed text-white/70">
             Fra første idé til sidste publicering former vi kampagner, der føles menneskelige, stærke og
-            relevante for både partneren og publikum.
+            relevante for både partneren og publikum - med LykkeLigas interne kreative team tæt på.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
@@ -186,7 +185,7 @@ export default function KampagnerPage() {
               href="/cases"
               className="inline-flex items-center gap-2 border border-white/20 px-5 py-2 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-white/40"
             >
-              Se cases
+              Se partnere
               <ArrowUpRight size={16} />
             </Link>
           </div>

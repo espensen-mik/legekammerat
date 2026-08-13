@@ -1,10 +1,5 @@
-import { PackagePage } from "@/src/components/package-page";
+import { redirect } from "next/navigation";
 
 export default function BasisPage() {
-  return (
-    <PackagePage
-      title="Basis"
-      description="For jer, der vil i gang med et fokuseret partnerskab med tydelig profilering."
-    />
-  );
+  redirect("/legekammerat#firmafan-bronze");
 }

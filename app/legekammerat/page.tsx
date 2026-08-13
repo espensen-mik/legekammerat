@@ -6,126 +6,250 @@ import { ContactModal } from "@/src/components/contact-modal";
 import { Check } from "lucide-react";
 import { useState } from "react";
 
-const packages = [
+const firmafans = [
   {
-    slug: "firmafan",
-    title: "FirmaFan",
-    price: "10.000 kr",
+    slug: "firmafan-bronze",
+    title: "Firmafan Bronze",
+    price: "Kr. 5.000 pr. år",
     description:
-      "Med denne aftale træder din virksomhed ind i LykkeLigas B2B Fanklub bestående af virksomheder fra hele landet. Medarbejderne i din virksomhed kan bryste sig af, at deres arbejdsplads støtter Danmarks lykkeligste Liga. I modtager herefter B2B nyhedsbrevet “LykkeLiga FanPost,” hvor nye medlemmer introduceres og du kan læse om udviklingen i den lykkelige liga.",
+      "Som firmafan træder din virksomhed ind i LykkeLigas B2B Fanklub med virksomheder fra hele landet. 2 gange om året modtager du “LykkeLiga-FanPost”, hvor nye medlemmer introduceres, og du kan komme tæt på udviklingen i den lykkelige liga.",
     includes: [
-      "Medlemskab af Danmarks lykkeligste FirmaFan klub",
-      "SoMe grafik til at prale af medlemsskab",
-      "E-mail grafik",
-      "Webbanner",
-      "Fysisk diplom til arbejdspladsen",
+      "Grafik med “Vi støtter LykkeLiga”, som kan bruges på hjemmeside og i mailsignatur",
+      "2 årlige FanPost-hilsner, der bl.a. fortæller om LykkeLigas aktiviteter og hvor man bliver annonceret som ny firmafan",
+    ],
+  },
+  {
+    slug: "firmafan-soelv",
+    title: "Firmafan Sølv",
+    price: "Kr. 10.000 pr. år",
+    description:
+      "Som firmafan træder din virksomhed ind i LykkeLigas B2B Fanklub med virksomheder fra hele landet. Sølv-niveauet giver dig mere synlighed og mulighed for at opleve LykkeCup tæt på.",
+    includes: [
+      "Grafik med “Vi støtter LykkeLiga”, som kan bruges på hjemmeside og i mailsignatur",
+      "2 årlige FanPost-hilsner, der bl.a. fortæller om LykkeLigas aktiviteter – hvor man bliver annonceret som ny firmafan",
+      "5 x billetter til LykkeCup",
+      "Logo på LykkeLigas www-sponsorside",
+    ],
+  },
+  {
+    slug: "firmafan-guld",
+    title: "Firmafan Guld",
+    price: "Kr. 25.000 pr. år",
+    description:
+      "Firmafan Guld er det stærkeste firmafan-niveau. Du får synlighed, anerkendelse og konkrete oplevelser, der gør det nemt at vise, at I støtter Danmarks lykkeligste liga.",
+    includes: [
+      "Grafik med “Vi støtter LykkeLiga”, som kan bruges på hjemmeside og i mailsignatur",
+      "2 årlige FanPost-hilsner, der bl.a. fortæller om LykkeLigas aktiviteter og hvor man bliver annonceret som ny firmafan",
+      "5 x billetter til LykkeCup",
+      "Logo på LykkeLigas www-sponsorside",
+      "1 stk. LykkeLiga t-shirt",
+      "Støttediplom",
+      "10 autografpostkort fra vores spillere",
+    ],
+  },
+];
+
+const partnerPackages = [
+  {
+    slug: "liga-ven",
+    title: "Liga-ven",
+    price: "Kr. 75.000 pr. år",
+    description:
+      "For virksomheder, som har lidt ekstra midler, de gerne vil gøre en god gerning med. Udover fordelene i Firmafan Guld-pakken får du som Liga-ven adgang til omtale på LykkeLigas hjemmeside og sociale medier - og selvfølgelig i vores FanPost-hilsner til erhvervssponsorer i LykkeLiga. Som Liga-ven får du også 2 x billetter til vores VIP-event til LykkeCup.",
+    includes: [
+      "Fordele indeholdt i Firmafan Guld",
+      "Omtale på LykkeLigas hjemmeside og sociale medier",
+      "Omtale i FanPost-hilsner til erhvervssponsorer",
+      "2 x billetter til VIP-event til LykkeCup",
     ],
   },
   {
     slug: "ligasponsor",
-    title: "LigaSponsor",
-    price: "50.000 kr",
+    title: "Ligasponsor",
+    price: "Kr. 150.000 pr. år",
     description:
-      "Et LykkeLiga Ligasponsorat betyder, at din virksomhed træder helt ind i vores fællesskab og kan prale af at være med til at støtte Danmarks både lykkeligste og sejeste håndboldstjerner.",
+      "Som Ligasponsor bliver din virksomhed en synlig og aktiv del af LykkeLigas hverdag. Det er også på dette niveau, at vi åbner op for aktiviteter og synlighed med vores spillere. Ligasponsorer i LykkeLiga: Lidl, Bridgestone, Uniqlo.",
     includes: [
-      "Medlemskab af Danmarks lykkeligste FirmaFan klub",
-      "SoMe grafik til at prale af medlemsskab",
-      "E-mail grafik",
-      "Webbanner",
-      "Deltagelse til LykkeLigas VIP arrangement “Lykke & Lagkage” (1 person)",
-      "Synlighed med logo til “Lykke & Lagkage”",
+      "De fordele, der er indeholdt i Firmafan Guld og Liga-ven aftalerne",
+      "Adgang til VIP-eventet Lykke og Lagkage (LykkeCup)",
+      "Mulighed for aktiviteter og kampagner med børnene",
+      "Eksponering på LykkeLigas sociale medier",
     ],
   },
   {
     slug: "legeaftale",
     title: "Legeaftale",
-    price: "250.000 kr.",
+    price: "Min. 250.000 kr. pr. år",
     description:
-      "Med en LykkeLiga LegeAftale kommer du endnu tættere på LykkeLiga spillerne og har mulighed for at gennemføre lykkelige events for både spillere og deres familier. Med en Legeaftale åbner du også for muligheden for at anvende LykkeLigas brand i din markedsføring med en egentlig LykkeLiga-kampagne.",
+      "Med en Partneraftale har din virksomhed mulighed for at blive en synlig og aktiv del af LykkeLigas hverdag. En Legeaftale åbner for aktiviteter, kampagner og synlighed tættere på målgruppen. Legeaftaler i LykkeLiga: Blue Water.",
     includes: [
-      "Medlemskab af Danmarks lykkeligste FirmaFan klub",
-      "SoMe grafik til at prale af medlemsskab",
-      "E-mail grafik",
-      "Webbanner",
-      "Fysisk diplom til arbejdspladsen",
-      "Deltagelse til LykkeLigas VIP arrangement “Lykke & Lagkage” (2 personer)",
-      "Synlighed med logo til “Lykke & Lagkage”",
-      "1 stk. LykkeLiga håndboldtrøje i ramme med virksomhedens logo på maven",
-      "Mulighed for 1 årligt oplæg med repræsentant fra LykkeLiga om fx lykke, trivsel og håndbold",
-      "Mulighed for at afholde lykkelige events eller aktiviteter med LykkeLiga spillere",
-      "Mulighed for at gennemføre kampagneaktivitet med brug af LykkeLigas brand",
-      "Mulighed for tilkøb af logo på “LykkeLiga Fællesskabstrøje” som releases hvert 2. år",
+      "Synlighed til LykkeCup",
+      "Adgang til VIP-eventet Lykke og Lagkage (LykkeCup)",
+      "Mulighed for aktiviteter og kampagner med børnene",
+      "1 valgfrit årligt foredrag om LykkeLiga",
+      "Eksponering på LykkeLigas sociale medier",
+      "De fordele, der er indeholdt i Firmafan Guld og Liga-ven aftalerne",
     ],
   },
   {
     slug: "legekammerat",
-    title: "LegeKammerat",
-    price: "Min. 500.000 kr.",
+    title: "Legekammerat",
+    price: "Min. 500.000 kr. pr. år",
     description:
-      "Som LykkeLiga Legekammerat kommer du helt indenfor dørene i Danmarks lykkeligste liga. Du kan sidde med ved bordet, når der skal planlægges LykkeCup og gennemføre kampagner i samarbejde med LykkeLiga. Det her - det er ægte BFF!",
+      "Udover de fordele en legeaftale giver, får du som legekammerat en aktiv plads i LykkeLiga-familien. Her arbejder vi sammen om at skabe lykke og fællesskab i målgruppen. Legekammeraten er en synlig spiller i LykkeLigas hverdag – og får synlighed til LykkeCup, VIP Lykke og Lagkage og aktiviteter med målgruppen. En legekammerat har LykkeLiga som en hjertesag, der gennemsyrer hele organisationen. Løbende møder og planlægning af fælles aktiviteter.",
     includes: [
-      "Medlemskab af Danmarks lykkeligste FirmaFan klub",
-      "SoMe grafik til at prale af medlemsskab",
-      "E-mail grafik",
-      "Webbanner",
-      "Fysisk diplom til arbejdspladsen",
-      "Deltagelse til LykkeLigas VIP arrangement “Lykke & Lagkage” (2 personer)",
-      "Synlighed med valgfri tilstedeværelse til “Lykke & Lagkage”",
-      "1 stk. LykkeLiga håndboldtrøje i ramme med virksomhedens logo på maven",
-      "Mulighed for 1 årligt oplæg med repræsentant fra LykkeLiga om fx lykke, trivsel og håndbold",
-      "Mulighed for at afholde lykkelige events eller aktiviteter med LykkeLiga spillere",
-      "Mulighed for at gennemføre kampagneaktivitet med brug af LykkeLigas brand og i samarbejde med LykkeLigas kreative team",
-      "Aktivitet, event eller tilstedeværelse til LykkeCup - Danmarks lykkeligste sæsonfinale",
-      "Mulighed for tilkøb af logo på “LykkeLiga Fællesskabstrøje” som releases hvert 2. år",
-      "Mulighed for at benytte sig af LykkeLigas lykkelige klubhus i Aalborg",
-      "Min. 2 årlige møder, hvor der planlægges fælles aktiviteter",
-      "Omtale på LykkeLigas SoMe-kanaler",
+      "Synlighed til LykkeCup",
+      "Adgang til VIP-eventet Lykke og Lagkage (LykkeCup)",
+      "Mulighed for aktiviteter og kampagner med børnene",
+      "1 valgfrit årligt foredrag om LykkeLiga",
+      "Eksponering på LykkeLigas sociale medier",
+      "De fordele, der er indeholdt i Firmafan Guld og Liga-ven aftalerne",
+      "Aktiv plads i LykkeLiga-familien med løbende møder og fælles planlægning",
     ],
+    quote:
+      "LykkeLiga er et fantastisk projekt, som alle os hos NORMAL er stolte over at tage del i. Vi elsker at skabe lykkelige oplevelser sammen med de skønne håndboldspillere og er taknemmelige for, at vi får lov at være med på holdet. Det giver SÅ meget mening for os, at vi kan hjælpe og vi glæder os til hvert eneste arrangement, hvor vi kan være med. Holdet bag LykkeLiga arbejder dygtigt med hjertet forrest, stor autenticitet og livsglæde. Og man er aldrig i tvivl om, at missionen er at gøre børnene lykkelige. LykkeLiga tænker skævt, ligesom vi selv synes, vi gør. Derfor er vi et perfekt match!",
+    attribution: "Torben Mouritzen, CEO Normal",
   },
+];
+
+const overviewColumns = [
+  { slug: "firmafan-bronze", title: "Bronze" },
+  { slug: "firmafan-soelv", title: "Sølv" },
+  { slug: "firmafan-guld", title: "Guld" },
+  { slug: "liga-ven", title: "Liga-ven" },
+  { slug: "ligasponsor", title: "Ligasponsor" },
+  { slug: "legeaftale", title: "Legeaftale" },
+  { slug: "legekammerat", title: "Legekammerat" },
 ];
 
 const overviewRows = [
   {
-    feature: "Medlemskab af Danmarks lykkeligste FirmaFan klub",
-    includedIn: ["firmafan", "ligasponsor", "legeaftale", "legekammerat"],
+    feature: "Grafik: “Vi støtter LykkeLiga”",
+    includedIn: [
+      "firmafan-bronze",
+      "firmafan-soelv",
+      "firmafan-guld",
+      "liga-ven",
+      "ligasponsor",
+      "legeaftale",
+      "legekammerat",
+    ],
   },
   {
-    feature: "SoMe grafik, e-mail grafik og webbanner",
-    includedIn: ["firmafan", "ligasponsor", "legeaftale", "legekammerat"],
+    feature: "2 årlige FanPost-hilsner",
+    includedIn: [
+      "firmafan-bronze",
+      "firmafan-soelv",
+      "firmafan-guld",
+      "liga-ven",
+      "ligasponsor",
+      "legeaftale",
+      "legekammerat",
+    ],
   },
   {
-    feature: "Fysisk diplom til arbejdspladsen",
-    includedIn: ["firmafan", "ligasponsor", "legeaftale", "legekammerat"],
+    feature: "5 x billetter til LykkeCup",
+    includedIn: ["firmafan-soelv", "firmafan-guld", "liga-ven", "ligasponsor", "legeaftale", "legekammerat"],
   },
   {
-    feature: "Lykke & Lagkage VIP deltagelse",
+    feature: "Logo på LykkeLigas sponsorside",
+    includedIn: ["firmafan-soelv", "firmafan-guld", "liga-ven", "ligasponsor", "legeaftale", "legekammerat"],
+  },
+  {
+    feature: "T-shirt, støttediplom og autografpostkort",
+    includedIn: ["firmafan-guld", "liga-ven", "ligasponsor", "legeaftale", "legekammerat"],
+  },
+  {
+    feature: "Omtale på hjemmeside og SoMe",
+    includedIn: ["liga-ven", "ligasponsor", "legeaftale", "legekammerat"],
+  },
+  {
+    feature: "VIP-billetter til LykkeCup",
+    includedIn: ["liga-ven", "ligasponsor", "legeaftale", "legekammerat"],
+  },
+  {
+    feature: "Adgang til VIP-eventet Lykke og Lagkage",
     includedIn: ["ligasponsor", "legeaftale", "legekammerat"],
   },
   {
-    feature: "Synlighed med logo til Lykke & Lagkage",
+    feature: "Aktiviteter og kampagner med børnene",
     includedIn: ["ligasponsor", "legeaftale", "legekammerat"],
   },
   {
-    feature: "LykkeLiga håndboldtrøje i ramme med logo",
+    feature: "1 valgfrit årligt foredrag om LykkeLiga",
     includedIn: ["legeaftale", "legekammerat"],
   },
   {
-    feature: "Mulighed for oplæg og events med LykkeLiga",
-    includedIn: ["legeaftale", "legekammerat"],
-  },
-  {
-    feature: "Kampagne med brug af LykkeLigas brand",
-    includedIn: ["legeaftale", "legekammerat"],
-  },
-  {
-    feature: "Aktivitet eller tilstedeværelse til LykkeCup",
-    includedIn: ["legekammerat"],
-  },
-  {
-    feature: "Klubhus adgang + fælles planlægningsmøder",
+    feature: "Synlighed til LykkeCup + løbende fælles planlægning",
     includedIn: ["legekammerat"],
   },
 ];
+
+function PackageCard({
+  item,
+  label,
+  onOrder,
+}: {
+  item: {
+    slug: string;
+    title: string;
+    price: string;
+    description: string;
+    includes: string[];
+    quote?: string;
+    attribution?: string;
+  };
+  label: string;
+  onOrder?: () => void;
+}) {
+  return (
+    <article id={item.slug} className="border border-white/15 bg-zinc-800/40 p-7">
+      <div className="space-y-2">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00f4c8]/80">{label}</p>
+        <h3 className="text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">{item.title}</h3>
+        <p className="whitespace-nowrap text-2xl font-semibold tracking-tight text-[#99ffe9]">{item.price}</p>
+      </div>
+
+      <p className="mt-6 text-zinc-300">{item.description}</p>
+
+      <div className="mt-8 space-y-4 border-t border-white/10 pt-6">
+        <p className="text-sm font-semibold uppercase tracking-[0.16em] text-zinc-200">Du får</p>
+        <ul className="space-y-2 text-sm text-zinc-300">
+          {item.includes.map((feature, featureIndex) => (
+            <li
+              key={feature}
+              className={`flex w-full items-start gap-2 border border-white/8 px-3 py-2 ${
+                featureIndex % 2 === 0 ? "bg-white/[0.04]" : "bg-transparent"
+              }`}
+            >
+              <Check size={14} className="mt-0.5 shrink-0 text-[#00f4c8]" />
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {item.quote ? (
+        <blockquote className="mt-8 border-l border-white/30 pl-5 text-base italic leading-relaxed text-zinc-200">
+          &ldquo;{item.quote}&rdquo;
+          {item.attribution ? <p className="mt-3 text-sm not-italic text-zinc-400">- {item.attribution}</p> : null}
+        </blockquote>
+      ) : null}
+
+      {onOrder ? (
+        <div className="mt-8 pt-2">
+          <button
+            type="button"
+            onClick={onOrder}
+            className="inline-flex items-center border border-[#00f4c8]/50 bg-black/40 px-5 py-2 text-sm font-medium text-zinc-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#00f4c8]"
+          >
+            Bestil nu!
+          </button>
+        </div>
+      ) : null}
+    </article>
+  );
+}
 
 export default function LegekammeratPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -136,78 +260,67 @@ export default function LegekammeratPage() {
         <section className="space-y-16">
           <SectionHeading
             eyebrow="Bliv legekammerat"
-            title="Partnerskabsmodeller i LykkeLiga"
-            description="Her finder I fire tydelige modeller, som gør det let at vælge det rette niveau for jeres engagement i Danmarks lykkeligste fællesskab."
+            title="Velkommen i en helt anden liga"
+            description="I en organisation som LykkeLiga er vi dybt afhængige af kommercielle sponsorer. Takket være din støtte kan vi fortsætte vores arbejde med at skabe lykkelige øjeblikke og fællesskaber i hele landet."
           />
 
-          <div className="mx-auto grid max-w-4xl gap-8">
-            {packages.map((item) => (
-              <article key={item.slug} id={item.slug} className="border border-white/15 bg-zinc-800/40 p-7">
-                <div className="space-y-2">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00f4c8]/80">
-                    Partnerskabsmodel
-                  </p>
-                  <h3 className="text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">
-                    {item.title}
-                  </h3>
-                  <p className="whitespace-nowrap text-2xl font-semibold tracking-tight text-[#99ffe9]">
-                    {item.price}
-                  </p>
-                </div>
+          <div className="mx-auto max-w-4xl space-y-4 text-zinc-300">
+            <p>
+              Vi skelner mellem to former for støtte: Firmafan og Partneraftaler. Som firmafan træder din
+              virksomhed ind i LykkeLigas B2B Fanklub. Med en Partneraftale har din virksomhed mulighed for at
+              blive en synlig og aktiv del af LykkeLigas hverdag - og det er også her, vi åbner op for
+              aktiviteter og synlighed med vores spillere.
+            </p>
+            <p>
+              Som firmafan får du mulighed for tilkøb af LykkeLiga produkter. Fx synlighed på
+              spiller/træner-t-shirts, køb af foredrag m.m. Firmafans får et særligt link til vores fanshop,
+              hvor man kan købe LykkeLiga tøj til favorabel pris.
+            </p>
+          </div>
 
-                <p className="mt-6 text-zinc-300">{item.description}</p>
+          <div className="mx-auto max-w-4xl space-y-8">
+            <div className="space-y-2">
+              <h2 className="text-2xl font-semibold tracking-tight text-zinc-100 sm:text-3xl">Firmafans</h2>
+              <p className="text-zinc-300">Tre niveauer for virksomheder, der vil støtte med hjertet.</p>
+            </div>
+            {firmafans.map((item) => (
+              <PackageCard
+                key={item.slug}
+                item={item}
+                label="Firmafan"
+                onOrder={() => setIsModalOpen(true)}
+              />
+            ))}
+          </div>
 
-                <div className="mt-8 space-y-4 border-t border-white/10 pt-6">
-                  <p className="text-sm font-semibold uppercase tracking-[0.16em] text-zinc-200">
-                    Pakken inkluderer
-                  </p>
-                  <ul className="space-y-2 text-sm text-zinc-300">
-                    {item.includes.map((feature, featureIndex) => (
-                      <li
-                        key={feature}
-                      className={`flex w-full items-start gap-2 border border-white/8 px-3 py-2 ${
-                          featureIndex % 2 === 0 ? "bg-white/[0.04]" : "bg-transparent"
-                        }`}
-                      >
-                        <Check size={14} className="mt-0.5 shrink-0 text-[#00f4c8]" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {item.slug === "firmafan" ? (
-                  <div className="mt-8 pt-2">
-                    <button
-                      type="button"
-                      onClick={() => setIsModalOpen(true)}
-                      className="inline-flex items-center border border-[#00f4c8]/50 bg-black/40 px-5 py-2 text-sm font-medium text-zinc-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#00f4c8]"
-                    >
-                      Bestil nu!
-                    </button>
-                  </div>
-                ) : null}
-              </article>
+          <div className="mx-auto max-w-4xl space-y-8">
+            <div className="space-y-2">
+              <h2 className="text-2xl font-semibold tracking-tight text-zinc-100 sm:text-3xl">PartnerPakker</h2>
+              <p className="text-zinc-300">
+                Aftaler for dem, der gerne vil give lidt ekstra for at engagere sig i lykkelige fællesskaber.
+              </p>
+            </div>
+            {partnerPackages.map((item) => (
+              <PackageCard key={item.slug} item={item} label="Partneraftale" />
             ))}
           </div>
 
           <section className="mx-auto max-w-4xl space-y-6 border border-white/15 bg-zinc-800/30 p-5 sm:p-8">
             <div className="space-y-2">
               <h3 className="text-2xl font-semibold tracking-tight text-zinc-100">Overblik</h3>
-              <p className="text-zinc-300">
-                Et hurtigt overblik over, hvad der er inkluderet i de fire modeller.
-              </p>
+              <p className="text-zinc-300">Et hurtigt overblik over, hvad der er inkluderet i sponsor-modellerne.</p>
             </div>
 
             <div className="overflow-x-auto">
-              <table className="w-full min-w-[860px] border-collapse text-left">
+              <table className="w-full min-w-[1100px] border-collapse text-left">
                 <thead>
                   <tr className="border-b border-white/10 text-sm text-zinc-300">
                     <th className="px-4 py-3 font-medium">Indhold</th>
-                    <th className="whitespace-nowrap px-4 py-3 font-medium">FirmaFan</th>
-                    <th className="whitespace-nowrap px-4 py-3 font-medium">LigaSponsor</th>
-                    <th className="whitespace-nowrap px-4 py-3 font-medium">Legeaftale</th>
-                    <th className="whitespace-nowrap px-4 py-3 font-medium">LegeKammerat</th>
+                    {overviewColumns.map((column) => (
+                      <th key={column.slug} className="whitespace-nowrap px-4 py-3 font-medium">
+                        {column.title}
+                      </th>
+                    ))}
                   </tr>
                 </thead>
                 <tbody>
@@ -219,9 +332,9 @@ export default function LegekammeratPage() {
                       }`}
                     >
                       <td className="px-4 py-3 text-zinc-300">{row.feature}</td>
-                      {packages.map((pkg) => (
-                        <td key={`${row.feature}-${pkg.slug}`} className="px-4 py-3 text-center">
-                          {row.includedIn.includes(pkg.slug) ? (
+                      {overviewColumns.map((column) => (
+                        <td key={`${row.feature}-${column.slug}`} className="px-4 py-3 text-center">
+                          {row.includedIn.includes(column.slug) ? (
                             <span className="text-[#00f4c8]">✓</span>
                           ) : (
                             <span className="text-zinc-600">-</span>
@@ -237,7 +350,7 @@ export default function LegekammeratPage() {
         </section>
       </Container>
 
-      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="Bestil FirmaFan" />
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="Bestil Firmafan" />
     </>
   );
 }
