@@ -86,16 +86,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative min-h-[70vh] overflow-hidden">
-        <Image
-          src="/AFA.jpg"
-          alt="LykkeLiga-spillere"
-          fill
-          sizes="100vw"
-          className="object-cover object-right"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#06111c] from-0% via-[#06111c] via-[32%] via-[#06111c]/80 via-[52%] to-transparent to-[78%]" />
+      <section className="relative min-h-[70vh] overflow-hidden bg-[#06111c]">
+        <div className="absolute inset-y-0 right-0 w-full lg:w-[55%]">
+          <Image
+            src="/AFA.jpg"
+            alt="LykkeLiga-spillere"
+            fill
+            sizes="(min-width: 1024px) 55vw, 100vw"
+            className="object-cover object-[center_center] lg:object-[70%_center]"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 bg-[#06111c]/70 lg:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#06111c] from-[0%] via-[#06111c] via-[40%] via-[#06111c]/95 via-[52%] via-[#06111c]/45 via-[68%] to-transparent to-[82%] max-lg:from-[#06111c]/85 max-lg:via-[#06111c]/70 max-lg:via-[45%] max-lg:to-[#06111c]/25" />
         <div className="relative mx-auto flex min-h-[70vh] w-full max-w-7xl items-center px-6 py-20 sm:px-10">
           <div className="max-w-2xl space-y-6">
             <p className="text-sm font-semibold text-[#00f4c8]">
@@ -117,7 +120,7 @@ export default function Home() {
               Læs mere om dine muligheder for et samarbejde med LykkeLiga
             </p>
             <Link
-              href="/legekammerat"
+              href="/partnerskaber"
               className="inline-flex items-center gap-2 rounded-full bg-[#00b3a4] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white hover:bg-[#00c9b8]"
             >
               Læs mere
@@ -201,7 +204,7 @@ export default function Home() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
-              href="/legekammerat"
+              href="/partnerskaber"
               className="inline-flex items-center gap-2 rounded-full bg-[#00b3a4] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white hover:bg-[#00c9b8]"
             >
               Book møde

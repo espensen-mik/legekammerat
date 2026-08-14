@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function PremiumPage() {
-  redirect("/legekammerat#legekammerat");
+  redirect("/partnerskaber#legekammerat");
 }

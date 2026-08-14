@@ -6,19 +6,19 @@ const firmafanLevels = [
     title: "Bronze",
     price: "5.000 kr / år",
     bullets: ["Grafik: “Vi støtter LykkeLiga”", "2 årlige FanPost-hilsner"],
-    href: "/legekammerat#firmafan-bronze",
+    href: "/firmafan#firmafan-bronze",
   },
   {
     title: "Sølv",
     price: "10.000 kr / år",
     bullets: ["Alt i Bronze", "5 x billetter til LykkeCup", "Logo på sponsorsiden"],
-    href: "/legekammerat#firmafan-soelv",
+    href: "/firmafan#firmafan-soelv",
   },
   {
     title: "Guld",
     price: "25.000 kr / år",
     bullets: ["Alt i Sølv", "T-shirt + støttediplom", "10 autografpostkort"],
-    href: "/legekammerat#firmafan-guld",
+    href: "/firmafan#firmafan-guld",
   },
 ];
 
@@ -28,7 +28,7 @@ const partnershipTiers = [
     title: "Liga-ven",
     price: "75.000 kr / år",
     bullets: ["Inkl. Firmafan Guld", "Omtale på hjemmeside og SoMe", "2 x VIP-billetter til LykkeCup"],
-    href: "/legekammerat#liga-ven",
+    href: "/partnerskaber#liga-ven",
     cta: "Se partnerskabet",
   },
   {
@@ -36,7 +36,7 @@ const partnershipTiers = [
     title: "Ligasponsor",
     price: "150.000 kr / år",
     bullets: ["VIP Lykke og Lagkage", "Aktiviteter med børnene", "Eksponering på SoMe"],
-    href: "/legekammerat#ligasponsor",
+    href: "/partnerskaber#ligasponsor",
     cta: "Se mulighederne",
   },
   {
@@ -44,7 +44,7 @@ const partnershipTiers = [
     title: "Legeaftale",
     price: "Min. 250.000 kr / år",
     bullets: ["Synlighed til LykkeCup", "1 årligt foredrag", "Kampagner med børnene"],
-    href: "/legekammerat#legeaftale",
+    href: "/partnerskaber#legeaftale",
     cta: "Se partnerskabet",
   },
 ];
@@ -64,7 +64,7 @@ export function EngagementPaths() {
 
         <div className="grid gap-4 md:grid-cols-2">
           <a
-            href="#firmafan"
+            href="/firmafan"
             className="group border border-white/10 bg-[#0f2438] p-7 transition-colors hover:border-[#00b3a4]/50"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/45">Den nemme vej ind</p>
@@ -73,7 +73,7 @@ export function EngagementPaths() {
             <p className="mt-5 text-lg font-semibold text-[#00f4c8]">Fra 5.000 kr / år</p>
           </a>
           <a
-            href="#partnerskaber"
+            href="/partnerskaber"
             className="group border border-[#00b3a4]/30 bg-[#123347] p-7 transition-colors hover:border-[#00f4c8]/60"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#00b3a4]">Samarbejde</p>
@@ -122,10 +122,10 @@ export function EngagementPaths() {
           <div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/10 px-6 py-4">
             <p className="text-sm text-white/55">Bronze → Sølv → Guld. Samme koncept. Tre niveauer.</p>
             <Link
-              href="/legekammerat#firmafan-bronze"
+              href="/firmafan"
               className="inline-flex items-center gap-2 text-sm font-semibold text-[#00b3a4] hover:text-[#00f4c8]"
             >
-              Bliv FirmaFan
+              Se FirmaFan
               <ArrowRight size={15} />
             </Link>
           </div>
@@ -195,7 +195,7 @@ export function EngagementPaths() {
             </div>
             <div className="lg:text-right">
               <Link
-                href="/legekammerat#legekammerat"
+                href="/partnerskaber#legekammerat"
                 className="inline-flex items-center gap-2 rounded-full bg-[#00b3a4] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white hover:bg-[#00c9b8]"
               >
                 Tal med os

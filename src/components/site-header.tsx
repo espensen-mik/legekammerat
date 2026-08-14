@@ -11,7 +11,8 @@ const navItems = [
   { href: "/", label: "Forside" },
   { href: "/cases", label: "Partnere" },
   { href: "/kampagner", label: "Kampagner" },
-  { href: "/legekammerat", label: "Bliv legekammerat" },
+  { href: "/firmafan", label: "FirmaFan" },
+  { href: "/partnerskaber", label: "Partnerskaber" },
   { href: "/om", label: "Om" },
 ];
 

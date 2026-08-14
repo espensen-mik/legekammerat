@@ -175,7 +175,7 @@ export default function KampagnerPage() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
-              href="/legekammerat"
+              href="/partnerskaber"
               className="inline-flex items-center gap-2 rounded-full bg-[#00b3a4] px-5 py-2 text-sm font-semibold text-white hover:bg-[#00c9b8]"
             >
               Book en snak
@@ -378,14 +378,14 @@ export default function KampagnerPage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/legekammerat"
+                href="/partnerskaber"
                 className="inline-flex items-center gap-2 rounded-full bg-[#00b3a4] px-5 py-2 text-sm font-semibold text-white hover:bg-[#00c9b8]"
               >
                 Book møde
                 <ArrowRight size={16} />
               </Link>
               <Link
-                href="/legekammerat"
+                href="/partnerskaber"
                 className="inline-flex items-center gap-2 rounded-full border border-white/25 px-5 py-2 text-sm font-semibold text-white hover:border-white"
               >
                 Se partnerskaber

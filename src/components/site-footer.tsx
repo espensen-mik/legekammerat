@@ -16,7 +16,8 @@ const footerLinks = [
   { href: "/", label: "Forside" },
   { href: "/cases", label: "Partnere" },
   { href: "/kampagner", label: "Kampagner" },
-  { href: "/legekammerat", label: "Bliv legekammerat" },
+  { href: "/firmafan", label: "FirmaFan" },
+  { href: "/partnerskaber", label: "Partnerskaber" },
   { href: "/om", label: "Om" },
 ];
 
@@ -52,13 +53,21 @@ export function SiteFooter() {
             LykkeLiga er et nationalt håndboldfællesskab for børn og unge med funktionsnedsættelser.
             Velkommen i en helt anden liga.
           </p>
-          <Link
-            href="/legekammerat"
-            className="inline-flex items-center gap-1.5 rounded-full bg-[#e07a6a] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white hover:bg-[#d46b5c]"
-          >
-            <Heart size={13} />
-            Bliv legekammerat
-          </Link>
+          <div className="flex flex-wrap gap-2">
+            <Link
+              href="/firmafan"
+              className="inline-flex items-center gap-1.5 rounded-full border border-white/25 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white hover:border-white"
+            >
+              Bliv FirmaFan
+            </Link>
+            <Link
+              href="/partnerskaber"
+              className="inline-flex items-center gap-1.5 rounded-full bg-[#e07a6a] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white hover:bg-[#d46b5c]"
+            >
+              <Heart size={13} />
+              Bliv partner
+            </Link>
+          </div>
         </div>
 
         <div>
