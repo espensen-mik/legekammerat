@@ -125,26 +125,26 @@ export default function Home() {
     <div className="bg-[#07111d] pb-16">
       <Hero />
 
-      <section className="bg-[#0a1c2e] px-6 py-20 sm:px-10 sm:py-24">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.3fr)] lg:gap-16">
-          <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden bg-[#123347] lg:max-w-none">
+      <section className="bg-[#0a1c2e] px-6 py-12 sm:px-10 sm:py-16">
+        <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 sm:flex-row sm:items-center sm:gap-10">
+          <div className="relative h-40 w-40 shrink-0 overflow-hidden sm:h-48 sm:w-48">
             <Image
               src="/mouritzen.jpg"
               alt="Torben Mouritzen, founder af Normal"
               fill
-              sizes="(min-width: 1024px) 420px, 90vw"
+              sizes="192px"
               className="object-cover object-[center_18%]"
             />
           </div>
-          <div className="space-y-6">
+          <div className="space-y-3">
             <p className="text-sm font-semibold text-[#00b3a4]">Lykkelige citater</p>
-            <blockquote className="text-2xl font-medium leading-snug text-white sm:text-4xl sm:leading-tight">
+            <blockquote className="text-lg font-medium leading-relaxed text-white sm:text-xl">
               LykkeLiga er et fantastisk projekt, som alle os hos NORMAL er stolte over at tage del i.
               Vi elsker at skabe lykkelige oplevelser sammen med de skønne håndboldspillere.
             </blockquote>
-            <div className="border-t border-white/15 pt-5">
-              <p className="text-base font-semibold text-white">Torben Mouritzen</p>
-              <p className="mt-1 text-sm text-white/60">Founder af Normal</p>
+            <div className="border-t border-white/15 pt-3">
+              <p className="text-sm font-semibold text-white">Torben Mouritzen</p>
+              <p className="mt-0.5 text-sm text-white/60">Founder af Normal</p>
             </div>
           </div>
         </div>
@@ -156,12 +156,12 @@ export default function Home() {
           alt="LykkeLiga-spillere"
           fill
           sizes="100vw"
-          className="object-cover object-[82%_center]"
+          className="object-cover object-right"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#06111c] via-[#06111c]/75 to-transparent lg:w-[58%]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#06111c] from-0% via-[#06111c] via-[32%] via-[#06111c]/80 via-[52%] to-transparent to-[78%]" />
         <div className="relative mx-auto flex min-h-[70vh] w-full max-w-7xl items-center px-6 py-20 sm:px-10">
-          <div className="max-w-2xl space-y-6 lg:max-w-3xl">
+          <div className="max-w-2xl space-y-6">
             <p className="text-sm font-semibold text-[#00f4c8]">
               Derfor skal din virksomhed arbejde sammen med LykkeLiga
             </p>
