@@ -9,6 +9,7 @@ const footerPartners = [
   { name: "Nordea", src: "/Logo/nordea_logo.svg", href: "/cases/nordea" },
   { name: "Bridgestone", src: "/Logo/Bridgestone_logo.svg", href: "/cases/bridgestone" },
   { name: "Hummel", src: "/Logo/hummel.svg", href: "/cases/hummel" },
+  { name: "Uniqlo", src: "/Logo/uniqlo_logo_sort.svg", href: "/cases/uniqlo", invert: true },
 ];
 
 const footerLinks = [
@@ -31,7 +32,7 @@ export function SiteFooter() {
                 alt={`${partner.name} logo`}
                 width={160}
                 height={56}
-                className="h-8 w-auto object-contain sm:h-9"
+                className={`h-8 w-auto object-contain sm:h-9 ${"invert" in partner && partner.invert ? "brightness-0 invert" : ""}`}
               />
             </Link>
           ))}

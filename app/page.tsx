@@ -14,6 +14,7 @@ const partners = [
   { name: "Nordea", src: "/Logo/nordea_logo.svg", logoClassName: "h-9 sm:h-11", href: "/cases/nordea" },
   { name: "Bridgestone", src: "/Logo/Bridgestone_logo.svg", logoClassName: "h-10 sm:h-12", href: "/cases/bridgestone" },
   { name: "Hummel", src: "/Logo/hummel.svg", logoClassName: "h-9 sm:h-11", href: "/cases/hummel" },
+  { name: "Uniqlo", src: "/Logo/uniqlo_logo_sort.svg", logoClassName: "h-9 sm:h-11 brightness-0 invert", href: "/cases/uniqlo" },
 ];
 
 const firmafanOverview = [
@@ -124,22 +125,44 @@ export default function Home() {
     <div className="bg-[#07111d] pb-16">
       <Hero />
 
-      <Section className="bg-[#0a1c2e]">
-        <div className="mx-auto max-w-4xl space-y-6">
-          <SectionHeading
-            eyebrow="Derfor skal din virksomhed arbejde sammen med LykkeLiga"
-            title="Danmarks stærkeste sociale brand"
-            description="LykkeLiga har siden starten i 2017 vokset sig til at være et af Danmarks mest elskede sociale brands. Med smukke fortællinger, humor og stærk tilstedeværelse på både sociale og traditionelle medier er LykkeLiga kendt og elsket i alle afkroge af landet. LykkeLigas drift er i høj grad afhængigt af partnerskaber med erhvervslivet og derfor har økonomisk støtte direkte effekt på smilebåndet hos de mange lykkelige håndboldsspillere."
-          />
-          <Link
-            href="/legekammerat"
-            className="inline-flex items-center gap-2 rounded-full bg-[#00b3a4] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white hover:bg-[#00c9b8]"
-          >
-            Læs mere om dine muligheder for et samarbejde med LykkeLiga
-            <ArrowRight size={16} />
-          </Link>
+      <section className="relative min-h-[70vh] overflow-hidden">
+        <Image
+          src="/AFA.jpg"
+          alt="LykkeLiga-spillere"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#06111c] via-[#06111c]/80 to-[#06111c]/20" />
+        <div className="relative mx-auto flex min-h-[70vh] w-full max-w-7xl items-center px-6 py-20 sm:px-10">
+          <div className="max-w-xl space-y-6">
+            <p className="text-sm font-semibold text-[#00f4c8]">
+              Derfor skal din virksomhed arbejde sammen med LykkeLiga
+            </p>
+            <h2 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
+              Danmarks stærkeste sociale brand
+            </h2>
+            <p className="text-base leading-relaxed text-white/85 sm:text-lg">
+              LykkeLiga har siden starten i 2017 vokset sig til at være et af Danmarks mest elskede sociale
+              brands. Med smukke fortællinger, humor og stærk tilstedeværelse på både sociale og
+              traditionelle medier er LykkeLiga kendt og elsket i alle afkroge af landet. LykkeLigas drift
+              er i høj grad afhængigt af partnerskaber med erhvervslivet og derfor har økonomisk støtte
+              direkte effekt på smilebåndet hos de mange lykkelige håndboldsspillere.
+            </p>
+            <p className="text-sm text-white/70">
+              Læs mere om dine muligheder for et samarbejde med LykkeLiga
+            </p>
+            <Link
+              href="/legekammerat"
+              className="inline-flex items-center gap-2 rounded-full bg-[#00b3a4] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white hover:bg-[#00c9b8]"
+            >
+              Læs mere
+              <ArrowRight size={16} />
+            </Link>
+          </div>
         </div>
-      </Section>
+      </section>
 
       <section className="bg-[#123347] px-6 py-16 sm:px-10 sm:py-20">
         <div className="mx-auto max-w-4xl space-y-4 text-center">
