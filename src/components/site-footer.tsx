@@ -9,7 +9,7 @@ const footerPartners = [
   { name: "Nordea", src: "/Logo/nordea_logo.svg", href: "/cases/nordea" },
   { name: "Bridgestone", src: "/Logo/Bridgestone_logo.svg", href: "/cases/bridgestone" },
   { name: "Hummel", src: "/Logo/hummel.svg", href: "/cases/hummel" },
-  { name: "Uniqlo", src: "/Logo/uniqlo_logo_sort.svg", href: "/cases/uniqlo", invert: true },
+  { name: "Uniqlo", src: "/Logo/uniqlo_logo-negativ.svg", href: "/cases/uniqlo" },
 ];
 
 const footerLinks = [

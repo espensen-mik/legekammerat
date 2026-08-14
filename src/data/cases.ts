@@ -96,7 +96,7 @@ export const cases: Case[] = [
       "Partnerskab med fokus på kultur, inklusion og stærke fællesskabsfortællinger.",
     playbackId: "MqPyyeDQG02UsU8I373hCGfxLatU00KXIbBQlvaxbgY02I",
     coverImage: "/uniqlo_hero.jpg",
-    logoSrc: "/Logo/uniqlo_logo_sort.svg",
+    logoSrc: "/Logo/uniqlo_logo-negativ.svg",
   },
   {
     slug: "socialpaedagogerne",

@@ -108,7 +108,7 @@ const partnerPackages = [
     ],
     quote:
       "LykkeLiga er et fantastisk projekt, som alle os hos NORMAL er stolte over at tage del i. Vi elsker at skabe lykkelige oplevelser sammen med de skønne håndboldspillere og er taknemmelige for, at vi får lov at være med på holdet. Det giver SÅ meget mening for os, at vi kan hjælpe og vi glæder os til hvert eneste arrangement, hvor vi kan være med. Holdet bag LykkeLiga arbejder dygtigt med hjertet forrest, stor autenticitet og livsglæde. Og man er aldrig i tvivl om, at missionen er at gøre børnene lykkelige. LykkeLiga tænker skævt, ligesom vi selv synes, vi gør. Derfor er vi et perfekt match!",
-    attribution: "Torben Mouritzen, CEO Normal",
+    attribution: "Torben Mouritzen, founder af Normal",
   },
 ];
 

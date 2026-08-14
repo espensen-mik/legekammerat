@@ -14,7 +14,7 @@ const partners = [
   { name: "Nordea", src: "/Logo/nordea_logo.svg", logoClassName: "h-9 sm:h-11", href: "/cases/nordea" },
   { name: "Bridgestone", src: "/Logo/Bridgestone_logo.svg", logoClassName: "h-10 sm:h-12", href: "/cases/bridgestone" },
   { name: "Hummel", src: "/Logo/hummel.svg", logoClassName: "h-9 sm:h-11", href: "/cases/hummel" },
-  { name: "Uniqlo", src: "/Logo/uniqlo_logo_sort.svg", logoClassName: "h-9 sm:h-11 brightness-0 invert", href: "/cases/uniqlo" },
+  { name: "Uniqlo", src: "/Logo/uniqlo_logo-negativ.svg", logoClassName: "h-9 sm:h-11", href: "/cases/uniqlo" },
 ];
 
 const firmafanOverview = [
@@ -125,6 +125,28 @@ export default function Home() {
     <div className="bg-[#07111d] pb-16">
       <Hero />
 
+      <section className="bg-[#123347] px-6 py-16 sm:px-10 sm:py-20">
+        <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center sm:flex-row sm:items-center sm:text-left">
+          <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full border-2 border-white/20 sm:h-32 sm:w-32">
+            <Image
+              src="/mouritzen.jpg"
+              alt="Torben Mouritzen"
+              fill
+              sizes="128px"
+              className="object-cover object-center"
+            />
+          </div>
+          <div className="space-y-4">
+            <p className="text-sm font-semibold text-[#00f4c8]">Lykkelige citater</p>
+            <blockquote className="text-xl italic leading-relaxed text-white sm:text-2xl">
+              &ldquo;LykkeLiga er et fantastisk projekt, som alle os hos NORMAL er stolte over at tage del i.
+              Vi elsker at skabe lykkelige oplevelser sammen med de skønne håndboldspillere.&rdquo;
+            </blockquote>
+            <p className="text-sm text-white/70">- Torben Mouritzen, founder af Normal</p>
+          </div>
+        </div>
+      </section>
+
       <section className="relative min-h-[70vh] overflow-hidden">
         <Image
           src="/AFA.jpg"
@@ -161,17 +183,6 @@ export default function Home() {
               <ArrowRight size={16} />
             </Link>
           </div>
-        </div>
-      </section>
-
-      <section className="bg-[#123347] px-6 py-16 sm:px-10 sm:py-20">
-        <div className="mx-auto max-w-4xl space-y-4 text-center">
-          <p className="text-sm font-semibold text-[#00f4c8]">Lykkelige citater</p>
-          <blockquote className="text-xl italic leading-relaxed text-white sm:text-2xl">
-            &ldquo;LykkeLiga er et fantastisk projekt, som alle os hos NORMAL er stolte over at tage del i.
-            Vi elsker at skabe lykkelige oplevelser sammen med de skønne håndboldspillere.&rdquo;
-          </blockquote>
-          <p className="text-sm text-white/70">- Torben Mouritzen, CEO Normal</p>
         </div>
       </section>
 
