@@ -4,17 +4,16 @@ import { ArrowRight, Crown, Heart, Sparkles, Star, Users } from "lucide-react";
 import { Hero } from "@/src/components/hero";
 import { Section } from "@/src/components/layout/section";
 import { SectionHeading } from "@/src/components/section-heading";
-import { VideoBlock } from "@/src/components/video-block";
 import { FeaturedCaseTile } from "@/src/components/featured-case-tile";
 import { ModelCard } from "@/src/components/model-card";
 
 const partners = [
   { name: "NORMAL", src: "/Logo/NORMAL_Logo.svg", logoClassName: "h-10 sm:h-12", href: "/cases/normal" },
   { name: "Lidl", src: "/Logo/Lidl_logo_white.svg", logoClassName: "h-9 sm:h-11", href: "/cases/lidl" },
-  { name: "Socialpædagogerne", src: "/Logo/SL_logo.svg", logoClassName: "h-10 sm:h-12", href: "#" },
+  { name: "Socialpædagogerne", src: "/Logo/SL_logo.svg", logoClassName: "h-10 sm:h-12", href: "/cases/socialpaedagogerne" },
   { name: "Nordea", src: "/Logo/nordea_logo.svg", logoClassName: "h-9 sm:h-11", href: "/cases/nordea" },
-  { name: "Bridgestone", src: "/Logo/Bridgestone_logo.svg", logoClassName: "h-10 sm:h-12", href: "#" },
-  { name: "Hummel", src: "/Logo/hummel.svg", logoClassName: "h-9 sm:h-11", href: "#" },
+  { name: "Bridgestone", src: "/Logo/Bridgestone_logo.svg", logoClassName: "h-10 sm:h-12", href: "/cases/bridgestone" },
+  { name: "Hummel", src: "/Logo/hummel.svg", logoClassName: "h-9 sm:h-11", href: "/cases/hummel" },
 ];
 
 const firmafanOverview = [
@@ -109,13 +108,13 @@ const featuredCases = [
   {
     name: "Bridgestone",
     blurb: "Strategisk samarbejde med fokus på bevægelse, samfundsansvar og lokal aktivering.",
-    href: "#",
+    href: "/cases/bridgestone",
     imageSrc: "/bridgestone_hero.jpg",
   },
   {
     name: "Uniqlo",
     blurb: "Partnerskab med fokus på kultur, inklusion og stærke fællesskabsfortællinger.",
-    href: "#",
+    href: "/cases/uniqlo",
     imageSrc: "/uniqlo_hero.jpg",
   },
 ];
@@ -126,38 +125,19 @@ export default function Home() {
       <Hero />
 
       <Section className="bg-[#0a1c2e]">
-        <div className="space-y-8">
+        <div className="mx-auto max-w-4xl space-y-6">
           <SectionHeading
-            eyebrow="Seneste fra partnerskaberne"
-            title="Breaking LykkeNEWS med LIDL"
-            description="Da LIDL samlede ind til LykkeLiga gennem deres LIDL+ App gik Rikke og Magda i BREAKING!"
+            eyebrow="Derfor skal din virksomhed arbejde sammen med LykkeLiga"
+            title="Danmarks stærkeste sociale brand"
+            description="LykkeLiga har siden starten i 2017 vokset sig til at være et af Danmarks mest elskede sociale brands. Med smukke fortællinger, humor og stærk tilstedeværelse på både sociale og traditionelle medier er LykkeLiga kendt og elsket i alle afkroge af landet. LykkeLigas drift er i høj grad afhængigt af partnerskaber med erhvervslivet og derfor har økonomisk støtte direkte effekt på smilebåndet hos de mange lykkelige håndboldsspillere."
           />
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.6fr_1fr]">
-            <div className="space-y-4">
-              <VideoBlock playbackId="MqPyyeDQG02UsU8I373hCGfxLatU00KXIbBQlvaxbgY02I" />
-              <p className="text-sm leading-relaxed text-white/70">
-                Videoen er produceret af LykkeLigas interne kreative team og blev publiceret på
-                LykkeLigas sociale kanaler med et publikum på mere end 150.000 følgere.
-              </p>
-              <Link
-                href="/cases/lidl"
-                className="inline-flex items-center gap-1 text-sm font-semibold text-[#00b3a4] hover:text-[#00f4c8]"
-              >
-                Læs mere om samarbejdet →
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 gap-6">
-              {featuredCases.slice(0, 2).map((item) => (
-                <FeaturedCaseTile
-                  key={item.name}
-                  name={item.name}
-                  blurb={item.blurb}
-                  href={item.href}
-                  imageSrc={item.imageSrc}
-                />
-              ))}
-            </div>
-          </div>
+          <Link
+            href="/legekammerat"
+            className="inline-flex items-center gap-2 rounded-full bg-[#00b3a4] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white hover:bg-[#00c9b8]"
+          >
+            Læs mere om dine muligheder for et samarbejde med LykkeLiga
+            <ArrowRight size={16} />
+          </Link>
         </div>
       </Section>
 

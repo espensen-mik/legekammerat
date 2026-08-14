@@ -76,6 +76,48 @@ export const cases: Case[] = [
     playbackId: "MqPyyeDQG02UsU8I373hCGfxLatU00KXIbBQlvaxbgY02I",
     coverImage: "/louisnielsen_hero.jpg",
   },
+  {
+    slug: "bridgestone",
+    name: "Bridgestone",
+    headline: "Bevægelse, ansvar og lokal aktivering.",
+    quote: "Sammen skaber vi synlighed, der også gør en forskel.",
+    description:
+      "Strategisk samarbejde med fokus på bevægelse, samfundsansvar og lokal aktivering.",
+    playbackId: "MqPyyeDQG02UsU8I373hCGfxLatU00KXIbBQlvaxbgY02I",
+    coverImage: "/bridgestone_hero.jpg",
+    logoSrc: "/Logo/Bridgestone_logo.svg",
+  },
+  {
+    slug: "uniqlo",
+    name: "Uniqlo",
+    headline: "Kultur, inklusion og fællesskab.",
+    quote: "Et partnerskab, der kan mærkes i fortællingen.",
+    description:
+      "Partnerskab med fokus på kultur, inklusion og stærke fællesskabsfortællinger.",
+    playbackId: "MqPyyeDQG02UsU8I373hCGfxLatU00KXIbBQlvaxbgY02I",
+    coverImage: "/uniqlo_hero.jpg",
+  },
+  {
+    slug: "socialpaedagogerne",
+    name: "Socialpædagogerne",
+    headline: "Et årelangt engagement i LykkeLiga.",
+    quote:
+      "Videoen med Muhammed og Mads gav os en sød og sjov platform til at snakke både internt og eksternt om vores årelange engagement i LykkeLiga.",
+    description:
+      "Socialpædagogerne og LykkeLiga har et tæt partnerskab, hvor uformelle formater og ægte historier gør samarbejdet synligt både internt og eksternt.",
+    playbackId: "ef6Xug8ju2xs9LSWfOmpNSfGCrs5SXMB4C9dXFCHIoY",
+    logoSrc: "/Logo/SL_logo.svg",
+  },
+  {
+    slug: "hummel",
+    name: "Hummel",
+    headline: "Fællesskabstrøjen og verdens vigtigste aftale.",
+    quote: "Et parløb mellem sport, design og lykkelige fællesskaber.",
+    description:
+      "Hummel og LykkeLiga har skabt synlige samarbejder om blandt andet Fællesskabstrøjen og fælles kampagnefilm.",
+    playbackId: "bgQ4J00R6iIVJTC01OFBnK9PerD4R7acAlZLBY601lpCGs",
+    logoSrc: "/Logo/hummel.svg",
+  },
 ];
 
 export function getCaseBySlug(slug: string) {

@@ -33,8 +33,18 @@ export function CaseCard({ item }: CaseCardProps) {
             ) : null}
           </>
         ) : (
-          <div className="flex h-full items-center justify-center bg-[#07111d] text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500">
-            Photo
+          <div className="relative flex h-full items-center justify-center bg-[#07111d]">
+            {item.logoSrc ? (
+              <Image
+                src={item.logoSrc}
+                alt={`${item.name} logo`}
+                width={220}
+                height={80}
+                className="h-12 w-auto max-w-[60%] object-contain brightness-0 invert sm:h-14"
+              />
+            ) : (
+              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500">Photo</span>
+            )}
           </div>
         )}
       </div>

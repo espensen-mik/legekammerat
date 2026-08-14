@@ -11,7 +11,7 @@ export function Hero() {
   const [isCleanView, setIsCleanView] = useState(false);
 
   return (
-    <section className="relative h-[86vh] min-h-[560px] overflow-hidden">
+    <section className="relative aspect-video w-full overflow-hidden bg-[#06111c]">
       <div className="hero-video absolute inset-0">
         <MuxPlayer
           playbackId="rjy79le010243vQ8Cgs1RWq01ZuPqo1Ft5SwtHdyjWsNyw"
@@ -45,7 +45,7 @@ export function Hero() {
       </div>
 
       {!isCleanView ? (
-        <Container className="relative z-10 flex h-full items-center py-24 sm:py-32">
+        <Container className="relative z-10 flex h-full items-center py-8 sm:py-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
