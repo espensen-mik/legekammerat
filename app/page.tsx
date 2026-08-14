@@ -125,24 +125,27 @@ export default function Home() {
     <div className="bg-[#07111d] pb-16">
       <Hero />
 
-      <section className="bg-[#123347] px-6 py-16 sm:px-10 sm:py-20">
-        <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center sm:flex-row sm:items-center sm:text-left">
-          <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full border-2 border-white/20 sm:h-32 sm:w-32">
+      <section className="bg-[#0a1c2e] px-6 py-20 sm:px-10 sm:py-24">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.3fr)] lg:gap-16">
+          <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden bg-[#123347] lg:max-w-none">
             <Image
               src="/mouritzen.jpg"
-              alt="Torben Mouritzen"
+              alt="Torben Mouritzen, founder af Normal"
               fill
-              sizes="128px"
-              className="object-cover object-center"
+              sizes="(min-width: 1024px) 420px, 90vw"
+              className="object-cover object-[center_18%]"
             />
           </div>
-          <div className="space-y-4">
-            <p className="text-sm font-semibold text-[#00f4c8]">Lykkelige citater</p>
-            <blockquote className="text-xl italic leading-relaxed text-white sm:text-2xl">
-              &ldquo;LykkeLiga er et fantastisk projekt, som alle os hos NORMAL er stolte over at tage del i.
-              Vi elsker at skabe lykkelige oplevelser sammen med de skønne håndboldspillere.&rdquo;
+          <div className="space-y-6">
+            <p className="text-sm font-semibold text-[#00b3a4]">Lykkelige citater</p>
+            <blockquote className="text-2xl font-medium leading-snug text-white sm:text-4xl sm:leading-tight">
+              LykkeLiga er et fantastisk projekt, som alle os hos NORMAL er stolte over at tage del i.
+              Vi elsker at skabe lykkelige oplevelser sammen med de skønne håndboldspillere.
             </blockquote>
-            <p className="text-sm text-white/70">- Torben Mouritzen, founder af Normal</p>
+            <div className="border-t border-white/15 pt-5">
+              <p className="text-base font-semibold text-white">Torben Mouritzen</p>
+              <p className="mt-1 text-sm text-white/60">Founder af Normal</p>
+            </div>
           </div>
         </div>
       </section>
@@ -153,12 +156,12 @@ export default function Home() {
           alt="LykkeLiga-spillere"
           fill
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-[82%_center]"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#06111c] via-[#06111c]/80 to-[#06111c]/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#06111c] via-[#06111c]/75 to-transparent lg:w-[58%]" />
         <div className="relative mx-auto flex min-h-[70vh] w-full max-w-7xl items-center px-6 py-20 sm:px-10">
-          <div className="max-w-xl space-y-6">
+          <div className="max-w-2xl space-y-6 lg:max-w-3xl">
             <p className="text-sm font-semibold text-[#00f4c8]">
               Derfor skal din virksomhed arbejde sammen med LykkeLiga
             </p>
@@ -168,9 +171,11 @@ export default function Home() {
             <p className="text-base leading-relaxed text-white/85 sm:text-lg">
               LykkeLiga har siden starten i 2017 vokset sig til at være et af Danmarks mest elskede sociale
               brands. Med smukke fortællinger, humor og stærk tilstedeværelse på både sociale og
-              traditionelle medier er LykkeLiga kendt og elsket i alle afkroge af landet. LykkeLigas drift
-              er i høj grad afhængigt af partnerskaber med erhvervslivet og derfor har økonomisk støtte
-              direkte effekt på smilebåndet hos de mange lykkelige håndboldsspillere.
+              traditionelle medier er LykkeLiga kendt og elsket i alle afkroge af landet.
+            </p>
+            <p className="text-base leading-relaxed text-white/85 sm:text-lg">
+              LykkeLigas drift er i høj grad afhængigt af partnerskaber med erhvervslivet og derfor har
+              økonomisk støtte direkte effekt på smilebåndet hos de mange lykkelige håndboldsspillere.
             </p>
             <p className="text-sm text-white/70">
               Læs mere om dine muligheder for et samarbejde med LykkeLiga
