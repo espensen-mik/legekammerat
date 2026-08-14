@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Crown, Heart, Sparkles, Star, Users } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Hero } from "@/src/components/hero";
 import { Section } from "@/src/components/layout/section";
 import { SectionHeading } from "@/src/components/section-heading";
 import { FeaturedCaseTile } from "@/src/components/featured-case-tile";
-import { ModelCard } from "@/src/components/model-card";
+import { EngagementPaths } from "@/src/components/engagement-paths";
 
 const partners = [
   { name: "NORMAL", src: "/Logo/NORMAL_Logo.svg", logoClassName: "h-10 sm:h-12", href: "/cases/normal" },
@@ -15,70 +15,6 @@ const partners = [
   { name: "Bridgestone", src: "/Logo/Bridgestone_logo.svg", logoClassName: "h-10 sm:h-12", href: "/cases/bridgestone" },
   { name: "Hummel", src: "/Logo/hummel.svg", logoClassName: "h-9 sm:h-11", href: "/cases/hummel" },
   { name: "Uniqlo", src: "/Logo/uniqlo_logo-negativ.svg", logoClassName: "h-9 sm:h-11", href: "/cases/uniqlo" },
-];
-
-const firmafanOverview = [
-  {
-    label: "Firmafan",
-    title: "Bronze",
-    price: "5.000 kr / år",
-    bullets: ["Grafik: “Vi støtter LykkeLiga”", "2 årlige FanPost-hilsner"],
-    href: "/legekammerat#firmafan-bronze",
-    Icon: Heart,
-  },
-  {
-    label: "Firmafan",
-    title: "Sølv",
-    price: "10.000 kr / år",
-    bullets: ["Alt i Bronze", "5 x billetter til LykkeCup", "Logo på sponsorsiden"],
-    href: "/legekammerat#firmafan-soelv",
-    Icon: Star,
-  },
-  {
-    label: "Firmafan",
-    title: "Guld",
-    price: "25.000 kr / år",
-    bullets: ["Alt i Sølv", "T-shirt + støttediplom", "10 autografpostkort"],
-    href: "/legekammerat#firmafan-guld",
-    Icon: Sparkles,
-  },
-];
-
-const partnerOverview = [
-  {
-    label: "Partneraftale",
-    title: "Liga-ven",
-    price: "75.000 kr / år",
-    bullets: ["Inkl. Firmafan Guld", "Omtale på hjemmeside og SoMe", "2 x VIP-billetter til LykkeCup"],
-    href: "/legekammerat#liga-ven",
-    Icon: Users,
-  },
-  {
-    label: "Partneraftale",
-    title: "Ligasponsor",
-    price: "150.000 kr / år",
-    bullets: ["VIP Lykke og Lagkage", "Aktiviteter med børnene", "Eksponering på SoMe"],
-    href: "/legekammerat#ligasponsor",
-    Icon: Sparkles,
-  },
-  {
-    label: "Partneraftale",
-    title: "Legeaftale",
-    price: "Min. 250.000 kr / år",
-    bullets: ["Synlighed til LykkeCup", "1 årligt foredrag", "Kampagner med børnene"],
-    href: "/legekammerat#legeaftale",
-    Icon: Star,
-  },
-  {
-    label: "Partneraftale",
-    title: "Legekammerat",
-    price: "Min. 500.000 kr / år",
-    bullets: ["Aktiv plads i LykkeLiga-familien", "Løbende fælles planlægning", "Hjertesag i hele organisationen"],
-    href: "/legekammerat#legekammerat",
-    Icon: Crown,
-    featured: true,
-    badge: "Tætteste partnerskab",
-  },
 ];
 
 const featuredCases = [
@@ -192,38 +128,7 @@ export default function Home() {
       </section>
 
       <Section>
-        <div className="space-y-12">
-          <SectionHeading
-            eyebrow="Sponsormodeller"
-            title="Velkommen i en helt anden liga"
-            description="Vi skelner mellem to former for støtte: Firmafan og Partneraftaler. Takket være din støtte kan vi skabe lykkelige øjeblikke og fællesskaber i hele landet."
-          />
-
-          <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-white">Firmafans</h3>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              {firmafanOverview.map((item) => (
-                <ModelCard key={item.title} {...item} />
-              ))}
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-white">PartnerPakker</h3>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
-              {partnerOverview.map((item) => (
-                <ModelCard key={item.title} {...item} />
-              ))}
-            </div>
-          </div>
-
-          <Link
-            href="/legekammerat"
-            className="inline-flex items-center rounded-full bg-[#00b3a4] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white hover:bg-[#00c9b8]"
-          >
-            Se alle sponsormodeller
-          </Link>
-        </div>
+        <EngagementPaths />
       </Section>
 
       <Section className="bg-[#0a1c2e]">
