@@ -43,3 +43,17 @@ body {
   background: #00b3a4;
   color: #06111c;
 }
+
+.hero-video mux-player {
+  --controls: none;
+  --media-object-fit: cover;
+  --media-object-position: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  min-width: 177.78vh;
+  height: 56.25vw;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+}

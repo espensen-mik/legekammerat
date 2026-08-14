@@ -31,7 +31,7 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col bg-[#07111d] text-zinc-50">
         <SiteHeader />
-        <main className="flex-1 pt-[108px]">{children}</main>
+        <main className="flex-1 pt-[72px]">{children}</main>
         <SiteFooter />
       </body>
     </html>

@@ -12,20 +12,21 @@ export function Hero() {
 
   return (
     <section className="relative h-[86vh] min-h-[560px] overflow-hidden">
-      <MuxPlayer
-        playbackId="rjy79le010243vQ8Cgs1RWq01ZuPqo1Ft5SwtHdyjWsNyw"
-        streamType="on-demand"
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 h-full w-full object-cover"
-      />
+      <div className="hero-video absolute inset-0">
+        <MuxPlayer
+          playbackId="rjy79le010243vQ8Cgs1RWq01ZuPqo1Ft5SwtHdyjWsNyw"
+          streamType="on-demand"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+      </div>
       {!isCleanView ? (
         <div className="absolute inset-0 bg-gradient-to-r from-[#06111c]/90 via-[#06111c]/55 to-transparent" />
       ) : null}
 
-      <div className="absolute right-6 top-28 z-20 sm:right-10">
+      <div className="absolute right-6 top-6 z-20 sm:right-10">
         <button
           type="button"
           onClick={() => setIsCleanView((prev) => !prev)}
