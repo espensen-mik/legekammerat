@@ -1,12 +1,14 @@
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { LaunchHero } from "@/src/components/launch-hero";
 import { TorbenQuote } from "@/src/components/torben-quote";
 import { Section } from "@/src/components/layout/section";
 import { SectionHeading } from "@/src/components/section-heading";
 import { LaunchFeaturedCaseTile } from "@/src/components/launch-featured-case-tile";
 import { LaunchEngagementPaths } from "@/src/components/launch-engagement-paths";
-import { contactHref, KONTAKT_HREF, LYKKELIGA_URL } from "@/src/lib/contact-anchor";
+import { contactHref, LYKKELIGA_URL } from "@/src/lib/contact-anchor";
+
+const SPONSOR_PDF_PATH = "/sponsor_materiale2026.pdf";
 
 const partners = [
   { name: "NORMAL", src: "/Logo/NORMAL_Logo.svg", logoClassName: "h-10 sm:h-12" },
@@ -166,22 +168,39 @@ export function LaunchHomepage() {
       </Section>
 
       <section className="px-6 pb-10 sm:px-10">
-        <div className="mx-auto max-w-7xl bg-[#123347] p-8 sm:p-12">
-          <p className="text-sm font-semibold text-[#00f4c8]">Næste skridt</p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-5xl">
-            Skal vi skabe noget, der mærkes?
-          </h2>
-          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-white/70">
-            Vi hjælper jer med at gøre en reel forskel - og fortælle historien om det.
-          </p>
-          <div className="mt-8">
-            <a
-              href={KONTAKT_HREF}
-              className="inline-flex items-center gap-2 rounded-full bg-[#00b3a4] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white hover:bg-[#00c9b8]"
-            >
-              Book en snak
-              <ArrowRight size={16} />
-            </a>
+        <div className="mx-auto max-w-7xl overflow-hidden bg-[#123347]">
+          <div className="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-stretch">
+            <div className="relative min-h-[16rem] sm:min-h-[20rem] lg:min-h-[28rem]">
+              <Image
+                src="/sponsor_mat_mockup.jpg"
+                alt="LykkeLiga partner materiale"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover object-center"
+              />
+            </div>
+            <div className="flex flex-col justify-center p-8 sm:p-12">
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+                Vil du vide mere?
+              </h2>
+              <p className="mt-3 text-lg font-semibold text-[#00f4c8] sm:text-xl">
+                Download vores partner materiale som PDF
+              </p>
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
+                Er du typen der hellere vil sidde i en god lænestol og læse et print? Så download vores
+                materiale som PDF og læs det i fred og ro.
+              </p>
+              <div className="mt-8">
+                <a
+                  href={SPONSOR_PDF_PATH}
+                  download="sponsor_materiale2026.pdf"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#00b3a4] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-[#00c9b8]"
+                >
+                  Download PDF her
+                  <Download size={16} />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
