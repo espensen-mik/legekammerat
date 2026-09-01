@@ -8,7 +8,7 @@ const footerPartners = [
   { name: "Socialpædagogerne", src: "/Logo/SL_logo.svg", href: "/cases/socialpaedagogerne" },
   { name: "Nordea", src: "/Logo/nordea_logo.svg", href: "/cases/nordea" },
   { name: "Bridgestone", src: "/Logo/Bridgestone_logo.svg", href: "/cases/bridgestone" },
-  { name: "Hummel", src: "/Logo/hummel.svg", href: "/cases/hummel" },
+  { name: "Blue Water Foundation", src: "/BW_Foundation.svg", href: "/cases" },
   { name: "Uniqlo", src: "/Logo/uniqlo_logo-negativ.svg", href: "/cases/uniqlo" },
 ];
 

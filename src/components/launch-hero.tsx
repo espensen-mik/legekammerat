@@ -11,7 +11,7 @@ export function LaunchHero() {
   const [isCleanView, setIsCleanView] = useState(false);
 
   return (
-    <section className="relative aspect-video w-full overflow-hidden bg-[#06111c]">
+    <section className="relative min-h-[32rem] w-full overflow-hidden bg-[#06111c] sm:aspect-video sm:min-h-0">
       <div className="hero-video absolute inset-0">
         <MuxPlayer
           playbackId="rjy79le010243vQ8Cgs1RWq01ZuPqo1Ft5SwtHdyjWsNyw"
@@ -45,32 +45,32 @@ export function LaunchHero() {
       </div>
 
       {!isCleanView ? (
-        <Container className="relative z-10 flex h-full items-center py-8 sm:py-16">
+        <Container className="relative z-10 flex min-h-[32rem] items-end pb-10 pt-24 sm:min-h-0 sm:h-full sm:items-center sm:py-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-2xl space-y-6"
+            className="w-full max-w-2xl space-y-5 sm:space-y-6"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#00f4c8]">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#00f4c8] sm:text-sm sm:tracking-[0.18em]">
               Lykkeliga Legekammerat
             </p>
-            <h1 className="text-4xl font-bold leading-[1.1] text-white sm:text-6xl">
+            <h1 className="max-w-[14ch] text-[1.875rem] font-bold leading-[1.15] text-balance text-white sm:max-w-none sm:text-6xl sm:leading-[1.1]">
               Velkommen i en helt anden liga
             </h1>
-            <p className="max-w-xl text-lg leading-relaxed text-white/85 sm:text-xl">
+            <p className="max-w-xl text-base leading-relaxed text-white/85 sm:text-lg md:text-xl">
               Skal din virksomhed være en del af Danmarks lykkeligste fællesskab?
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
                 href={contactHref("partner")}
-                className="inline-flex items-center rounded-full bg-[#00b3a4] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-[#00c9b8]"
+                className="inline-flex w-full items-center justify-center rounded-full bg-[#00b3a4] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-[#00c9b8] sm:w-auto"
               >
                 Bliv partner
               </a>
               <a
                 href={contactHref("firmafan")}
-                className="inline-flex items-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:border-white"
+                className="inline-flex w-full items-center justify-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:border-white sm:w-auto"
               >
                 Bliv FirmaFan
               </a>

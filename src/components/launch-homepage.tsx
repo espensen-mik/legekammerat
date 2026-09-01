@@ -16,7 +16,7 @@ const partners = [
   { name: "Socialpædagogerne", src: "/Logo/SL_logo.svg", logoClassName: "h-10 sm:h-12" },
   { name: "Nordea", src: "/Logo/nordea_logo.svg", logoClassName: "h-9 sm:h-11" },
   { name: "Bridgestone", src: "/Logo/Bridgestone_logo.svg", logoClassName: "h-10 sm:h-12" },
-  { name: "Hummel", src: "/Logo/hummel.svg", logoClassName: "h-9 sm:h-11" },
+  { name: "Blue Water Foundation", src: "/BW_Foundation.svg", logoClassName: "h-9 sm:h-11" },
   { name: "Uniqlo", src: "/Logo/uniqlo_logo-negativ.svg", logoClassName: "h-9 sm:h-11" },
 ];
 

@@ -20,10 +20,10 @@ export function LaunchSiteHeader() {
 
         <a
           href={KONTAKT_HREF}
-          className="inline-flex items-center gap-1.5 rounded-full bg-[#e07a6a] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition-colors hover:bg-[#d46b5c]"
+          className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-[#e07a6a] px-3 py-2 text-[0.6875rem] font-semibold uppercase tracking-wide text-white transition-colors hover:bg-[#d46b5c] sm:px-4 sm:text-xs"
         >
-          <Heart size={13} />
-          Book en snak
+          <Heart size={13} className="shrink-0" />
+          <span className="whitespace-nowrap">Book en snak</span>
         </a>
       </div>
     </header>
