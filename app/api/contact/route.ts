@@ -140,7 +140,7 @@ export async function POST(request: Request) {
   const website = payload.website?.trim() ?? "";
   if (website) {
     return NextResponse.json({
-      message: "Tak for din henvendelse. Vi vender tilbage hurtigst muligt.",
+      message: "1000 tak for din interesse i LykkeLiga. Vi vender straks tilbage med masser af lykke!",
     });
   }
 
@@ -230,6 +230,6 @@ export async function POST(request: Request) {
   }
 
   return NextResponse.json({
-    message: "Tak for din henvendelse. Vi vender tilbage hurtigst muligt.",
+    message: "1000 tak for din interesse i LykkeLiga. Vi vender straks tilbage med masser af lykke!",
   });
 }

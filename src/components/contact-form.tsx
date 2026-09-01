@@ -21,7 +21,8 @@ type FormErrors = Partial<Record<keyof FormState, string>>;
 
 const SUBMIT_ERROR_MESSAGE =
   "Din besked kunne ikke sendes. Prøv igen, eller kontakt os direkte på e-mail.";
-const SUCCESS_MESSAGE = "Tak for din henvendelse. Vi vender tilbage hurtigst muligt.";
+const SUCCESS_MESSAGE =
+  "1000 tak for din interesse i LykkeLiga. Vi vender straks tilbage med masser af lykke!";
 
 function createInitialForm(initialInterest?: ContactInterest): FormState {
   return {
