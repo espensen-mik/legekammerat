@@ -47,11 +47,11 @@ The launch contact form posts to `/api/contact`.
 To enable email delivery, set these environment variables:
 
 ```env
-RESEND_API_KEY=re_...
-CONTACT_FORM_FROM="LykkeLiga <kontakt@dit-domæne.dk>"
-CONTACT_FORM_RECIPIENT=info@lykkeliga.dk
+RESEND_API_KEY=
+CONTACT_EMAIL=
+CONTACT_FROM_EMAIL=
 ```
 
-Until both `RESEND_API_KEY` and `CONTACT_FORM_FROM` are set, the form UI works but submissions return a clear configuration error. Visitors can still reach the team at info@lykkeliga.dk or 53 80 30 17.
+Until all three variables are set, the form UI works but submissions return a clear configuration error. Visitors can still reach the team at info@lykkeliga.dk or 53 80 30 17.
 
-`CONTACT_FORM_FROM` must use a domain verified in your Resend account.
+`CONTACT_FROM_EMAIL` must use the verified Resend domain `forms.lykkeliga.dk`.

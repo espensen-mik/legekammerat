@@ -5,7 +5,7 @@ import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { motion } from "motion/react";
 import { Container } from "@/src/components/layout/container";
-import { KONTAKT_HREF } from "@/src/lib/contact-anchor";
+import { contactHref } from "@/src/lib/contact-anchor";
 
 export function LaunchHero() {
   const [isCleanView, setIsCleanView] = useState(false);
@@ -63,13 +63,13 @@ export function LaunchHero() {
             </p>
             <div className="flex flex-wrap gap-3">
               <a
-                href={KONTAKT_HREF}
+                href={contactHref("partner")}
                 className="inline-flex items-center rounded-full bg-[#00b3a4] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-[#00c9b8]"
               >
                 Bliv partner
               </a>
               <a
-                href={KONTAKT_HREF}
+                href={contactHref("firmafan")}
                 className="inline-flex items-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:border-white"
               >
                 Bliv FirmaFan

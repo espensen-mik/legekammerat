@@ -6,7 +6,7 @@ import { Section } from "@/src/components/layout/section";
 import { SectionHeading } from "@/src/components/section-heading";
 import { LaunchFeaturedCaseTile } from "@/src/components/launch-featured-case-tile";
 import { LaunchEngagementPaths } from "@/src/components/launch-engagement-paths";
-import { KONTAKT_HREF, LYKKELIGA_URL } from "@/src/lib/contact-anchor";
+import { contactHref, KONTAKT_HREF, LYKKELIGA_URL } from "@/src/lib/contact-anchor";
 
 const partners = [
   { name: "NORMAL", src: "/Logo/NORMAL_Logo.svg", logoClassName: "h-10 sm:h-12" },
@@ -89,7 +89,7 @@ export function LaunchHomepage() {
               økonomisk støtte direkte effekt på smilebåndet hos de mange lykkelige håndboldsspillere.
             </p>
             <a
-              href={KONTAKT_HREF}
+              href={contactHref("partner")}
               className="inline-flex items-center gap-2 rounded-full bg-[#00b3a4] px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white hover:bg-[#00c9b8]"
             >
               Hør mere

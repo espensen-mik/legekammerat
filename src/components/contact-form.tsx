@@ -1,15 +1,11 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
-
-export const interestOptions = [
-  "FirmaFan",
-  "Partnerskab",
-  "Ligasponsor",
-  "Legeaftale",
-  "Legekammerat",
-  "Andet",
-] as const;
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import {
+  CONTACT_INTEREST_OPTIONS,
+  type ContactInterest,
+} from "@/src/lib/contact-interest";
+import { CONTACT_FIELD_LIMITS, isValidContactEmail } from "@/src/lib/contact-validation";
 
 type FormState = {
   name: string;
@@ -18,33 +14,45 @@ type FormState = {
   phone: string;
   interest: string;
   message: string;
+  website: string;
 };
 
 type FormErrors = Partial<Record<keyof FormState, string>>;
 
-const initialForm: FormState = {
-  name: "",
-  company: "",
-  email: "",
-  phone: "",
-  interest: "",
-  message: "",
-};
+const SUBMIT_ERROR_MESSAGE =
+  "Din besked kunne ikke sendes. Prøv igen, eller kontakt os direkte på e-mail.";
+const SUCCESS_MESSAGE = "Tak for din henvendelse. Vi vender tilbage hurtigst muligt.";
+
+function createInitialForm(initialInterest?: ContactInterest): FormState {
+  return {
+    name: "",
+    company: "",
+    email: "",
+    phone: "",
+    interest: initialInterest ?? "",
+    message: "",
+    website: "",
+  };
+}
 
 function validateForm(form: FormState): FormErrors {
   const errors: FormErrors = {};
 
   if (!form.name.trim()) {
     errors.name = "Angiv dit navn.";
+  } else if (form.name.trim().length > CONTACT_FIELD_LIMITS.name) {
+    errors.name = "Navnet er for langt.";
   }
 
   if (!form.company.trim()) {
     errors.company = "Angiv virksomhedens navn.";
+  } else if (form.company.trim().length > CONTACT_FIELD_LIMITS.company) {
+    errors.company = "Virksomhedsnavnet er for langt.";
   }
 
   if (!form.email.trim()) {
     errors.email = "Angiv din e-mail.";
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+  } else if (!isValidContactEmail(form.email.trim())) {
     errors.email = "Angiv en gyldig e-mailadresse.";
   }
 
@@ -54,6 +62,12 @@ function validateForm(form: FormState): FormErrors {
 
   if (!form.message.trim()) {
     errors.message = "Skriv en kort besked.";
+  } else if (form.message.trim().length > CONTACT_FIELD_LIMITS.message) {
+    errors.message = "Beskeden er for lang.";
+  }
+
+  if (form.phone.trim().length > CONTACT_FIELD_LIMITS.phone) {
+    errors.phone = "Telefonnummeret er for langt.";
   }
 
   return errors;
@@ -61,17 +75,33 @@ function validateForm(form: FormState): FormErrors {
 
 type ContactFormProps = {
   idPrefix?: string;
+  initialInterest?: ContactInterest;
   onSuccess?: () => void;
 };
 
-export function ContactForm({ idPrefix = "contact", onSuccess }: ContactFormProps) {
-  const [form, setForm] = useState<FormState>(initialForm);
+export function ContactForm({
+  idPrefix = "contact",
+  initialInterest,
+  onSuccess,
+}: ContactFormProps) {
+  const [form, setForm] = useState<FormState>(() => createInitialForm(initialInterest));
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [statusMessage, setStatusMessage] = useState("");
+  const statusRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    if (status === "success") {
+      statusRef.current?.focus();
+    }
+  }, [status]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    if (status === "submitting") {
+      return;
+    }
 
     const nextErrors = validateForm(form);
     setErrors(nextErrors);
@@ -96,18 +126,18 @@ export function ContactForm({ idPrefix = "contact", onSuccess }: ContactFormProp
 
       if (!response.ok) {
         setStatus("error");
-        setStatusMessage(data.error ?? "Noget gik galt. Prøv igen eller skriv til info@lykkeliga.dk.");
+        setStatusMessage(data.error ?? SUBMIT_ERROR_MESSAGE);
         return;
       }
 
       setStatus("success");
-      setStatusMessage(data.message ?? "Tak for din henvendelse. Vi vender tilbage hurtigst muligt.");
-      setForm(initialForm);
+      setStatusMessage(data.message ?? SUCCESS_MESSAGE);
+      setForm(createInitialForm(initialInterest));
       setErrors({});
       onSuccess?.();
     } catch {
       setStatus("error");
-      setStatusMessage("Kunne ikke sende formularen. Prøv igen eller skriv til info@lykkeliga.dk.");
+      setStatusMessage(SUBMIT_ERROR_MESSAGE);
     }
   }
 
@@ -121,6 +151,22 @@ export function ContactForm({ idPrefix = "contact", onSuccess }: ContactFormProp
       className="space-y-5"
       aria-describedby={statusMessage ? `${idPrefix}-form-status` : undefined}
     >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-[9999px] h-0 w-0 overflow-hidden"
+      >
+        <label htmlFor={`${idPrefix}-website`}>Website</label>
+        <input
+          id={`${idPrefix}-website`}
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={form.website}
+          onChange={(event) => setForm((current) => ({ ...current, website: event.target.value }))}
+        />
+      </div>
+
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-1">
           <label htmlFor={`${idPrefix}-name`} className="text-sm text-white/75">
@@ -131,6 +177,7 @@ export function ContactForm({ idPrefix = "contact", onSuccess }: ContactFormProp
             name="name"
             type="text"
             autoComplete="name"
+            maxLength={CONTACT_FIELD_LIMITS.name}
             value={form.name}
             onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
             className={inputClassName}
@@ -153,6 +200,7 @@ export function ContactForm({ idPrefix = "contact", onSuccess }: ContactFormProp
             name="company"
             type="text"
             autoComplete="organization"
+            maxLength={CONTACT_FIELD_LIMITS.company}
             value={form.company}
             onChange={(event) => setForm((current) => ({ ...current, company: event.target.value }))}
             className={inputClassName}
@@ -177,6 +225,7 @@ export function ContactForm({ idPrefix = "contact", onSuccess }: ContactFormProp
             name="email"
             type="email"
             autoComplete="email"
+            maxLength={CONTACT_FIELD_LIMITS.email}
             value={form.email}
             onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
             className={inputClassName}
@@ -199,10 +248,18 @@ export function ContactForm({ idPrefix = "contact", onSuccess }: ContactFormProp
             name="phone"
             type="tel"
             autoComplete="tel"
+            maxLength={CONTACT_FIELD_LIMITS.phone}
             value={form.phone}
             onChange={(event) => setForm((current) => ({ ...current, phone: event.target.value }))}
             className={inputClassName}
+            aria-invalid={Boolean(errors.phone)}
+            aria-describedby={errors.phone ? `${idPrefix}-phone-error` : undefined}
           />
+          {errors.phone ? (
+            <p id={`${idPrefix}-phone-error`} className="text-sm text-[#e07a6a]">
+              {errors.phone}
+            </p>
+          ) : null}
         </div>
       </div>
 
@@ -220,9 +277,9 @@ export function ContactForm({ idPrefix = "contact", onSuccess }: ContactFormProp
           aria-describedby={errors.interest ? `${idPrefix}-interest-error` : undefined}
         >
           <option value="">Vælg en mulighed</option>
-          {interestOptions.map((option) => (
-            <option key={option} value={option}>
-              {option}
+          {CONTACT_INTEREST_OPTIONS.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
             </option>
           ))}
         </select>
@@ -241,6 +298,7 @@ export function ContactForm({ idPrefix = "contact", onSuccess }: ContactFormProp
           id={`${idPrefix}-message`}
           name="message"
           rows={5}
+          maxLength={CONTACT_FIELD_LIMITS.message}
           value={form.message}
           onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))}
           className={inputClassName}
@@ -256,9 +314,11 @@ export function ContactForm({ idPrefix = "contact", onSuccess }: ContactFormProp
 
       {statusMessage ? (
         <p
+          ref={statusRef}
           id={`${idPrefix}-form-status`}
+          tabIndex={-1}
           role={status === "success" ? "status" : "alert"}
-          className={`text-sm ${status === "success" ? "text-[#00f4c8]" : "text-[#e07a6a]"}`}
+          className={`text-sm outline-none ${status === "success" ? "text-[#00f4c8]" : "text-[#e07a6a]"}`}
         >
           {statusMessage}
         </p>

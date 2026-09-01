@@ -2,32 +2,59 @@
 
 import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { ContactModal } from "@/src/components/contact-modal";
-import { KONTAKT_ANCHOR, KONTAKT_HREF } from "@/src/lib/contact-anchor";
+import {
+  contactHref,
+  contactInterestFromHash,
+  isContactHash,
+  type ContactInterest,
+} from "@/src/lib/contact-interest";
+import { KONTAKT_ANCHOR } from "@/src/lib/contact-anchor";
 
-function isKontaktHash(hash: string) {
-  return hash === KONTAKT_HREF || hash === `#${KONTAKT_ANCHOR}`;
+function readInterestFromLink(link: HTMLAnchorElement): ContactInterest | undefined {
+  const dataInterest = link.getAttribute("data-contact-interest");
+  if (dataInterest === "firmafan" || dataInterest === "partner") {
+    return dataInterest;
+  }
+
+  const href = link.getAttribute("href") ?? "";
+  return contactInterestFromHash(href);
 }
 
 export function LaunchContactProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [initialInterest, setInitialInterest] = useState<ContactInterest | undefined>();
 
-  const openModal = useCallback(() => {
+  const openModal = useCallback((interest?: ContactInterest) => {
+    setInitialInterest(interest);
     setIsOpen(true);
-    if (!isKontaktHash(window.location.hash)) {
-      window.history.pushState(null, "", KONTAKT_HREF);
+
+    const nextHash = contactHref(interest);
+    if (window.location.hash !== nextHash) {
+      window.history.pushState(null, "", nextHash);
     }
   }, []);
 
   const closeModal = useCallback(() => {
     setIsOpen(false);
-    if (isKontaktHash(window.location.hash)) {
+    setInitialInterest(undefined);
+
+    if (isContactHash(window.location.hash)) {
       window.history.pushState(null, "", `${window.location.pathname}${window.location.search}`);
     }
   }, []);
 
   useEffect(() => {
     const syncFromHash = () => {
-      setIsOpen(isKontaktHash(window.location.hash));
+      const hash = window.location.hash;
+
+      if (isContactHash(hash)) {
+        setIsOpen(true);
+        setInitialInterest(contactInterestFromHash(hash));
+        return;
+      }
+
+      setIsOpen(false);
+      setInitialInterest(undefined);
     };
 
     syncFromHash();
@@ -43,11 +70,11 @@ export function LaunchContactProvider({ children }: { children: ReactNode }) {
       const target = event.target;
       if (!(target instanceof Element)) return;
 
-      const link = target.closest(`a[href="${KONTAKT_HREF}"]`);
-      if (!link) return;
+      const link = target.closest('a[href^="#kontakt"]');
+      if (!link || !(link instanceof HTMLAnchorElement)) return;
 
       event.preventDefault();
-      openModal();
+      openModal(readInterestFromLink(link));
     }
 
     document.addEventListener("click", handleClick);
@@ -61,7 +88,7 @@ export function LaunchContactProvider({ children }: { children: ReactNode }) {
     <>
       {children}
       <span id={KONTAKT_ANCHOR} className="sr-only" tabIndex={-1} aria-hidden="true" />
-      <ContactModal isOpen={isOpen} onClose={closeModal} title="Book en snak" />
+      <ContactModal isOpen={isOpen} onClose={closeModal} initialInterest={initialInterest} />
     </>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowRight, X } from "lucide-react";
-import { KONTAKT_HREF } from "@/src/lib/contact-anchor";
+import { contactHref } from "@/src/lib/contact-anchor";
 
 type FirmafanLevel = {
   title: string;
@@ -121,7 +121,7 @@ function FirmafanTierModal({
             Luk
           </button>
           <a
-            href={KONTAKT_HREF}
+            href={contactHref("firmafan")}
             onClick={onClose}
             className="inline-flex items-center gap-2 rounded-full bg-[#00b3a4] px-5 py-2 text-sm font-semibold text-white hover:bg-[#00c9b8]"
           >
@@ -171,7 +171,7 @@ export function FirmafanTiers() {
         <div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/10 px-6 py-4">
           <p className="text-sm text-white/55">Bronze → Sølv → Guld. Samme koncept. Tre niveauer.</p>
           <a
-            href={KONTAKT_HREF}
+            href={contactHref("firmafan")}
             className="inline-flex items-center gap-2 text-sm font-semibold text-[#00b3a4] hover:text-[#00f4c8]"
           >
             Kontakt os

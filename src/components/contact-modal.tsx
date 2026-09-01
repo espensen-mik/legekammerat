@@ -1,19 +1,23 @@
 "use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
 import { X } from "lucide-react";
 import { ContactForm } from "@/src/components/contact-form";
+import type { ContactInterest } from "@/src/lib/contact-interest";
 
 type ContactModalProps = {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
+  initialInterest?: ContactInterest;
 };
 
 export function ContactModal({
   isOpen,
   onClose,
   title = "Lad os tage en snak",
+  initialInterest,
 }: ContactModalProps) {
   useEffect(() => {
     if (!isOpen) return;
@@ -53,6 +57,13 @@ export function ContactModal({
       >
         <div className="flex shrink-0 items-start justify-between gap-4 border-b border-white/10 p-6 sm:p-8">
           <div>
+            <Image
+              src="/lykkeliga-logo.svg"
+              alt="LykkeLiga"
+              width={156}
+              height={40}
+              className="mb-4 h-8 w-auto object-contain brightness-0 invert sm:h-9"
+            />
             <p className="text-sm font-semibold text-[#00b3a4]">Kontakt</p>
             <h2 id="contact-modal-title" className="mt-1 text-2xl font-bold text-white sm:text-3xl">
               {title}
@@ -72,7 +83,11 @@ export function ContactModal({
         </div>
 
         <div className="overflow-y-auto p-6 sm:p-8">
-          <ContactForm idPrefix="contact-modal" />
+          <ContactForm
+            key={initialInterest ?? "generic"}
+            idPrefix="contact-modal"
+            initialInterest={initialInterest}
+          />
         </div>
       </div>
     </div>

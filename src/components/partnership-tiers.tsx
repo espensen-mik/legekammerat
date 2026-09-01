@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowRight, X } from "lucide-react";
-import { KONTAKT_HREF } from "@/src/lib/contact-anchor";
+import { contactHref } from "@/src/lib/contact-anchor";
 
 type PartnershipTier = {
   stage: string;
@@ -167,7 +167,7 @@ function PartnershipTierModal({
             Luk
           </button>
           <a
-            href={KONTAKT_HREF}
+            href={contactHref("partner")}
             onClick={onClose}
             className="inline-flex items-center gap-2 rounded-full bg-[#00b3a4] px-5 py-2 text-sm font-semibold text-white hover:bg-[#00c9b8]"
           >
