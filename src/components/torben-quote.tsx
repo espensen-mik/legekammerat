@@ -51,17 +51,17 @@ function TorbenVideoModal({ onClose }: { onClose: () => void }) {
               Torben Mouritzen, founder af Normal
             </h2>
           </div>
+        </div>
+
+        <div className="hero-video relative aspect-video w-full bg-black">
           <button
             type="button"
             onClick={onClose}
-            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-white/35 hover:text-white"
-            aria-label="Luk"
+            className="absolute right-3 top-3 z-20 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-black/35 text-white/55 backdrop-blur-sm transition-colors hover:border-white/25 hover:bg-black/55 hover:text-white/90 sm:right-4 sm:top-4 sm:h-9 sm:w-9"
+            aria-label="Luk video"
           >
-            <X size={18} />
+            <X size={17} strokeWidth={1.75} />
           </button>
-        </div>
-
-        <div className="hero-video aspect-video w-full bg-black">
           <MuxPlayer
             playbackId={TORBEN_VIDEO_PLAYBACK_ID}
             streamType="on-demand"

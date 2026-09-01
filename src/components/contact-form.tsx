@@ -78,12 +78,14 @@ type ContactFormProps = {
   idPrefix?: string;
   initialInterest?: ContactInterest;
   onSuccess?: () => void;
+  variant?: "default" | "glass";
 };
 
 export function ContactForm({
   idPrefix = "contact",
   initialInterest,
   onSuccess,
+  variant = "default",
 }: ContactFormProps) {
   const [form, setForm] = useState<FormState>(() => createInitialForm(initialInterest));
   const [errors, setErrors] = useState<FormErrors>({});
@@ -133,7 +135,6 @@ export function ContactForm({
 
       setStatus("success");
       setStatusMessage(data.message ?? SUCCESS_MESSAGE);
-      setForm(createInitialForm(initialInterest));
       setErrors({});
       onSuccess?.();
     } catch {
@@ -143,7 +144,25 @@ export function ContactForm({
   }
 
   const inputClassName =
-    "w-full border border-white/15 bg-[#07111d] px-3 py-2 text-white placeholder:text-white/40 focus:border-[#00b3a4] focus:outline-none";
+    variant === "glass"
+      ? "w-full border border-white/12 bg-white/5 px-3 py-2 text-white placeholder:text-white/40 backdrop-blur-sm focus:border-[#00b3a4] focus:outline-none"
+      : "w-full border border-white/15 bg-[#07111d] px-3 py-2 text-white placeholder:text-white/40 focus:border-[#00b3a4] focus:outline-none";
+
+  if (status === "success") {
+    return (
+      <div className="flex min-h-[280px] flex-col items-center justify-center px-2 py-10 text-center sm:min-h-[320px] sm:px-6">
+        <p
+          ref={statusRef}
+          id={`${idPrefix}-form-status`}
+          tabIndex={-1}
+          role="status"
+          className="max-w-md text-lg leading-relaxed text-[#00f4c8] outline-none sm:text-xl"
+        >
+          {statusMessage}
+        </p>
+      </div>
+    );
+  }
 
   return (
     <form
@@ -318,8 +337,8 @@ export function ContactForm({
           ref={statusRef}
           id={`${idPrefix}-form-status`}
           tabIndex={-1}
-          role={status === "success" ? "status" : "alert"}
-          className={`text-sm outline-none ${status === "success" ? "text-[#00f4c8]" : "text-[#e07a6a]"}`}
+          role="alert"
+          className="text-sm text-[#e07a6a] outline-none"
         >
           {statusMessage}
         </p>

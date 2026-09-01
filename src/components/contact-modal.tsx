@@ -46,24 +46,17 @@ export function ContactModal({
       <button
         type="button"
         aria-label="Luk kontaktformular"
-        className="absolute inset-0 bg-black/70"
+        className="absolute inset-0 bg-[#06111c]/70 backdrop-blur-[2px]"
         onClick={onClose}
       />
       <div
         role="dialog"
         aria-modal="true"
         aria-labelledby="contact-modal-title"
-        className="relative z-10 flex max-h-[min(90vh,860px)] w-full max-w-2xl flex-col overflow-hidden bg-[#0f2438] shadow-2xl"
+        className="relative z-10 flex max-h-[min(90vh,860px)] w-full max-w-2xl flex-col overflow-hidden border border-white/10 bg-[#0f2438]/82 shadow-2xl shadow-black/40 backdrop-blur-xl"
       >
         <div className="flex shrink-0 items-start justify-between gap-4 border-b border-white/10 p-6 sm:p-8">
           <div>
-            <Image
-              src="/lykkeliga-logo.svg"
-              alt="LykkeLiga"
-              width={156}
-              height={40}
-              className="mb-4 h-8 w-auto object-contain brightness-0 invert sm:h-9"
-            />
             <p className="text-sm font-semibold text-[#00b3a4]">Kontakt</p>
             <h2 id="contact-modal-title" className="mt-1 text-2xl font-bold text-white sm:text-3xl">
               {title}
@@ -75,7 +68,7 @@ export function ContactModal({
           <button
             type="button"
             onClick={onClose}
-            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-white/35 hover:text-white"
+            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 backdrop-blur-sm transition-colors hover:border-white/35 hover:text-white"
             aria-label="Luk"
           >
             <X size={18} />
@@ -84,9 +77,19 @@ export function ContactModal({
 
         <div className="overflow-y-auto p-6 sm:p-8">
           <ContactForm
-            key={initialInterest ?? "generic"}
             idPrefix="contact-modal"
             initialInterest={initialInterest}
+            variant="glass"
+          />
+        </div>
+
+        <div className="flex shrink-0 justify-center border-t border-white/10 px-6 py-5 sm:px-8">
+          <Image
+            src="/lykkeliga-logo.svg"
+            alt="LykkeLiga"
+            width={156}
+            height={40}
+            className="h-7 w-auto object-contain opacity-80 brightness-0 invert sm:h-8"
           />
         </div>
       </div>
