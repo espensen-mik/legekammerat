@@ -8,8 +8,8 @@ export default function CasesPage() {
     <Container className="py-16 sm:py-24">
       <section className="space-y-12">
         <SectionHeading
-          eyebrow="Partnere"
-          title="Partnere med reel effekt."
+          eyebrow="Cases"
+          title="Samarbejder med reel effekt."
           description="Hvert samarbejde er designet til at skabe nærværende oplevelser og langvarig værdi."
         />
         <div className="grid gap-5 md:grid-cols-2">

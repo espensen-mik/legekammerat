@@ -24,6 +24,16 @@ body {
   font-family: var(--font-plus-jakarta), Arial, Helvetica, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 .logo-marquee-track {
   display: flex;
   width: max-content;

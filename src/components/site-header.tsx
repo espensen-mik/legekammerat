@@ -9,11 +9,10 @@ import { ContactModal } from "@/src/components/contact-modal";
 
 const navItems = [
   { href: "/", label: "Forside" },
-  { href: "/cases", label: "Partnere" },
-  { href: "/kampagner", label: "Kampagner" },
   { href: "/firmafan", label: "FirmaFan" },
-  { href: "/partnerskaber", label: "Partnerskaber" },
-  { href: "/om", label: "Om" },
+  { href: "/partnerskaber", label: "Partner" },
+  { href: "/cases", label: "Cases" },
+  { href: "/om", label: "Om LykkeLiga" },
 ];
 
 export function SiteHeader() {
