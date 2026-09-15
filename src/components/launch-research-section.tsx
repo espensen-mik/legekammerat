@@ -18,14 +18,14 @@ export function LaunchResearchSection() {
           description="LykkeLiga deltager løbende i forskning omkring trivsel og fællesskab for børn og unge med funktionsnedsættelser. Blandt samarbejdspartnerne er Rigshospitalet, Aalborg Universitet og Aalborg Universitetshospital."
         />
 
-        <div className="hero-video overflow-hidden bg-black ring-1 ring-white/10">
+        <div className="overflow-hidden bg-black ring-1 ring-white/10">
           <MuxPlayer
             playbackId={RESEARCH_PLAYBACK_ID}
             streamType="on-demand"
             playsInline
             poster={RESEARCH_POSTER_URL}
             accentColor="#00b3a4"
-            className="aspect-video w-full"
+            style={{ aspectRatio: "16 / 9", width: "100%", height: "auto", display: "block" }}
           />
         </div>
       </div>
