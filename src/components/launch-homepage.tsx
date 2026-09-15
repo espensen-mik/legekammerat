@@ -15,13 +15,13 @@ const partners = [
   { name: "Lidl", src: "/Logo/Lidl_logo_white.svg", logoClassName: "h-9 sm:h-11" },
   { name: "Socialpædagogerne", src: "/Logo/SL_logo.svg", logoClassName: "h-10 sm:h-12" },
   { name: "Nordea", src: "/Logo/nordea_logo.svg", logoClassName: "h-9 sm:h-11" },
-  { name: "Bridgestone", src: "/Logo/Bridgestone_logo.svg", logoClassName: "h-10 sm:h-12" },
+  { name: "Bridgestone", src: "/Logo/Bridgestone_logo.svg", logoClassName: "h-5 sm:h-6" },
   { name: "Blue Water Foundation", src: "/BW_Foundation.svg", logoClassName: "h-9 sm:h-11" },
   { name: "Uniqlo", src: "/Logo/uniqlo_logo-negativ.svg", logoClassName: "h-9 sm:h-11" },
-  { name: "Herning Kommune", src: "/Logo/Herningkommune_negativ.svg", logoClassName: "h-9 sm:h-11" },
-  { name: "Joma", src: "/Logo/joma_negativ.svg", logoClassName: "h-9 sm:h-11" },
-  { name: "MCH", src: "/Logo/MCH_negativ.svg", logoClassName: "h-9 sm:h-11" },
-  { name: "Team LykkeLiga", src: "/Logo/TL-logo-rgb-negativ.svg", logoClassName: "h-9 sm:h-11" },
+  { name: "Herning Kommune", src: "/Logo/Herningkommune_negativ.svg", logoClassName: "h-14 sm:h-16" },
+  { name: "Joma", src: "/Logo/joma_negativ.svg", logoClassName: "h-14 sm:h-16" },
+  { name: "MCH", src: "/Logo/MCH_negativ.svg", logoClassName: "h-14 sm:h-16" },
+  { name: "Teknisk Landsforbund", src: "/Logo/TL-logo-rgb-negativ.svg", logoClassName: "h-9 sm:h-11" },
 ];
 
 const featuredCases = [
@@ -116,9 +116,9 @@ export function LaunchHomepage() {
             title="Stærke brands i fællesskabet"
             description="Et netværk af virksomheder, der prioriterer fællesskab, synlig impact og langsigtet værdi."
           />
-          <div className="flex flex-wrap items-center justify-between gap-x-10 gap-y-6">
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8">
             {partners.map((partner) => (
-              <div key={partner.name} className="opacity-70">
+              <div key={partner.name} className="flex h-16 items-center justify-center opacity-70 sm:h-20">
                 <Image
                   src={partner.src}
                   alt={`${partner.name} logo`}
