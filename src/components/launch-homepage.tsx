@@ -102,24 +102,23 @@ export function LaunchHomepage() {
 
       <Section>
         <div className="space-y-10">
-          <div className="space-y-8">
-            <SectionHeading
-              eyebrow="Støtte med hjertet"
-              title="Hvad er LykkeLiga?"
-              description="LykkeLiga er et nationalt håndboldfællesskab for børn og unge med funktionsnedsættelser. Takket være din støtte kan vi fortsætte vores arbejde med at skabe lykkelige øjeblikke og fællesskaber i hele landet."
-            />
-            <a
-              href={LYKKELIGA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#00b3a4] hover:text-[#00f4c8]"
-            >
-              Læs mere om LykkeLiga
-              <ArrowRight size={15} />
-            </a>
-          </div>
+          <SectionHeading
+            eyebrow="Støtte med hjertet"
+            title="Hvad er LykkeLiga?"
+            description="LykkeLiga er et nationalt håndboldfællesskab for børn og unge med funktionsnedsættelser. Takket være din støtte kan vi fortsætte vores arbejde med at skabe lykkelige øjeblikke og fællesskaber i hele landet."
+          />
 
           <LykkeLigaFacts />
+
+          <a
+            href={LYKKELIGA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#00b3a4] hover:text-[#00f4c8]"
+          >
+            Læs mere på vores hjemmeside
+            <ArrowRight size={15} />
+          </a>
         </div>
       </Section>
 

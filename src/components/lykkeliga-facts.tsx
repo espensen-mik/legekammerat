@@ -218,17 +218,7 @@ export function LykkeLigaFacts() {
   const isInView = useInView(ref, { once: true, amount: 0.25 });
 
   return (
-    <div ref={ref} className="space-y-5">
-      <motion.p
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.45 }}
-        className="text-sm font-semibold text-[#00f4c8]"
-      >
-        Fakta om LykkeLiga
-      </motion.p>
-
+    <div ref={ref}>
       <div className="grid grid-cols-2 items-center gap-4 sm:gap-5 lg:grid-cols-12 lg:gap-6">
         <div className="col-span-2 sm:col-span-1 lg:col-span-4">
           <FactCard fact={facts[0]} active={isInView} index={0} />
