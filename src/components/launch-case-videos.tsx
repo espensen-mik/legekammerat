@@ -45,6 +45,13 @@ const caseVideos: CaseVideoItem[] = [
     playbackId: "bgQ4J00R6iIVJTC01OFBnK9PerD4R7acAlZLBY601lpCGs",
     gifStart: 17,
   },
+  {
+    name: "NORMAL",
+    description:
+      "Normal er LykkeLigas tætteste Legekammerat. Hvert år til sæsonafslutningen LykkeCup garanterer virksomheden en lykkelig dag for mere end 3.000 deltagere. Normal er dem i de gule trøjer!",
+    playbackId: "jsDP1GZFsK51mY9zJze00epIsAlFH8mDMqf1Va02QR01Z8",
+    gifStart: 0,
+  },
 ];
 
 function CaseVideoModal({
