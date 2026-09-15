@@ -52,6 +52,13 @@ const caseVideos: CaseVideoItem[] = [
     playbackId: "jsDP1GZFsK51mY9zJze00epIsAlFH8mDMqf1Va02QR01Z8",
     gifStart: 0,
   },
+  {
+    name: "Socialpædagogerne",
+    description:
+      "Da Socialpædagogerne skulle genforhandle deres aftale som Ligasponsor blev formand Benny indkaldt til SUS (Sponsor Udviklings samtale) med spillerne Mads og Muhammed.",
+    playbackId: "ef6Xug8ju2xs9LSWfOmpNSfGCrs5SXMB4C9dXFCHIoY",
+    gifStart: 40,
+  },
 ];
 
 function CaseVideoModal({
