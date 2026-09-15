@@ -10,6 +10,10 @@ const footerPartners = [
   { name: "Bridgestone", src: "/Logo/Bridgestone_logo.svg", logoClassName: "h-10 sm:h-12" },
   { name: "Blue Water Foundation", src: "/BW_Foundation.svg", logoClassName: "h-9 sm:h-11" },
   { name: "Uniqlo", src: "/Logo/uniqlo_logo-negativ.svg", logoClassName: "h-9 sm:h-11" },
+  { name: "Herning Kommune", src: "/Logo/Herningkommune_negativ.svg", logoClassName: "h-9 sm:h-11" },
+  { name: "Joma", src: "/Logo/joma_negativ.svg", logoClassName: "h-9 sm:h-11" },
+  { name: "MCH", src: "/Logo/MCH_negativ.svg", logoClassName: "h-9 sm:h-11" },
+  { name: "Team LykkeLiga", src: "/Logo/TL-logo-rgb-negativ.svg", logoClassName: "h-9 sm:h-11" },
 ];
 
 export function LaunchSiteFooter() {
