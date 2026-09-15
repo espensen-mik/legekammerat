@@ -3,17 +3,17 @@ import { Heart, Mail, Phone } from "lucide-react";
 import { KONTAKT_HREF, LYKKELIGA_URL } from "@/src/lib/contact-anchor";
 
 const footerPartners = [
-  { name: "NORMAL", src: "/Logo/NORMAL_Logo.svg", logoClassName: "h-10 sm:h-12" },
-  { name: "Lidl", src: "/Logo/Lidl_logo_white.svg", logoClassName: "h-9 sm:h-11" },
-  { name: "Socialpædagogerne", src: "/Logo/SL_logo.svg", logoClassName: "h-10 sm:h-12" },
-  { name: "Nordea", src: "/Logo/nordea_logo.svg", logoClassName: "h-9 sm:h-11" },
-  { name: "Bridgestone", src: "/Logo/Bridgestone_logo.svg", logoClassName: "h-5 sm:h-6" },
-  { name: "Blue Water Foundation", src: "/BW_Foundation.svg", logoClassName: "h-9 sm:h-11" },
-  { name: "Uniqlo", src: "/Logo/uniqlo_logo-negativ.svg", logoClassName: "h-9 sm:h-11" },
-  { name: "Herning Kommune", src: "/Logo/Herningkommune_negativ.svg", logoClassName: "h-14 sm:h-16" },
-  { name: "Joma", src: "/Logo/joma_negativ.svg", logoClassName: "h-14 sm:h-16" },
-  { name: "MCH", src: "/Logo/MCH_negativ.svg", logoClassName: "h-14 sm:h-16" },
-  { name: "Teknisk Landsforbund", src: "/Logo/TL-logo-rgb-negativ.svg", logoClassName: "h-9 sm:h-11" },
+  { name: "NORMAL", src: "/Logo/NORMAL_Logo.svg", logoClassName: "h-10 max-w-[150px] sm:h-12 sm:max-w-[180px]" },
+  { name: "Lidl", src: "/Logo/Lidl_logo_white.svg", logoClassName: "h-9 max-w-[150px] sm:h-11 sm:max-w-[180px]" },
+  { name: "Socialpædagogerne", src: "/Logo/SL_logo.svg", logoClassName: "h-10 max-w-[150px] sm:h-12 sm:max-w-[180px]" },
+  { name: "Nordea", src: "/Logo/nordea_logo.svg", logoClassName: "h-9 max-w-[150px] sm:h-11 sm:max-w-[180px]" },
+  { name: "Bridgestone", src: "/Logo/Bridgestone_logo.svg", logoClassName: "h-4 max-w-[100px] sm:h-5 sm:max-w-[120px]" },
+  { name: "Blue Water Foundation", src: "/BW_Foundation.svg", logoClassName: "h-9 max-w-[150px] sm:h-11 sm:max-w-[180px]" },
+  { name: "Uniqlo", src: "/Logo/uniqlo_logo-negativ.svg", logoClassName: "h-9 max-w-[150px] sm:h-11 sm:max-w-[180px]" },
+  { name: "Herning Kommune", src: "/Logo/Herningkommune_negativ.svg", logoClassName: "h-14 max-w-[150px] sm:h-16 sm:max-w-[180px]" },
+  { name: "Joma", src: "/Logo/joma_negativ.svg", logoClassName: "h-14 max-w-[150px] sm:h-16 sm:max-w-[180px]" },
+  { name: "MCH", src: "/Logo/MCH_negativ.svg", logoClassName: "h-14 max-w-[150px] sm:h-16 sm:max-w-[180px]" },
+  { name: "Teknisk Landsforbund", src: "/Logo/TL-logo-rgb-negativ.svg", logoClassName: "h-9 max-w-[150px] sm:h-11 sm:max-w-[180px]" },
 ];
 
 export function LaunchSiteFooter() {
@@ -28,7 +28,7 @@ export function LaunchSiteFooter() {
                 alt={`${partner.name} logo`}
                 width={220}
                 height={84}
-                className={`${partner.logoClassName} w-auto max-w-[150px] object-contain sm:max-w-[180px]`}
+                className={`w-auto object-contain ${partner.logoClassName}`}
               />
             </div>
           ))}
