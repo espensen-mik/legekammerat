@@ -6,6 +6,7 @@ import { Section } from "@/src/components/layout/section";
 import { SectionHeading } from "@/src/components/section-heading";
 import { LaunchCaseVideos } from "@/src/components/launch-case-videos";
 import { LaunchEngagementPaths } from "@/src/components/launch-engagement-paths";
+import { LaunchResearchSection } from "@/src/components/launch-research-section";
 import { LykkeLigaFacts } from "@/src/components/lykkeliga-facts";
 import { contactHref, LYKKELIGA_URL } from "@/src/lib/contact-anchor";
 
@@ -125,6 +126,8 @@ export function LaunchHomepage() {
       <Section className="bg-[#0a1c2e]">
         <LaunchCaseVideos />
       </Section>
+
+      <LaunchResearchSection />
 
       <section className="px-6 pb-10 sm:px-10">
         <div className="mx-auto max-w-7xl overflow-hidden bg-[#123347]">
