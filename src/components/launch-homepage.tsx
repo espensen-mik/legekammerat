@@ -6,6 +6,7 @@ import { Section } from "@/src/components/layout/section";
 import { SectionHeading } from "@/src/components/section-heading";
 import { LaunchCaseVideos } from "@/src/components/launch-case-videos";
 import { LaunchEngagementPaths } from "@/src/components/launch-engagement-paths";
+import { LykkeLigaFacts } from "@/src/components/lykkeliga-facts";
 import { contactHref, LYKKELIGA_URL } from "@/src/lib/contact-anchor";
 
 const SPONSOR_PDF_PATH = "/sponsor_materiale2026.pdf";
@@ -100,21 +101,25 @@ export function LaunchHomepage() {
       </Section>
 
       <Section>
-        <div className="space-y-8">
-          <SectionHeading
-            eyebrow="Støtte med hjertet"
-            title="Hvad er LykkeLiga?"
-            description="LykkeLiga er et nationalt håndboldfællesskab for børn og unge med funktionsnedsættelser. Takket være din støtte kan vi fortsætte vores arbejde med at skabe lykkelige øjeblikke og fællesskaber i hele landet."
-          />
-          <a
-            href={LYKKELIGA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[#00b3a4] hover:text-[#00f4c8]"
-          >
-            Læs mere om LykkeLiga
-            <ArrowRight size={15} />
-          </a>
+        <div className="space-y-10">
+          <div className="space-y-8">
+            <SectionHeading
+              eyebrow="Støtte med hjertet"
+              title="Hvad er LykkeLiga?"
+              description="LykkeLiga er et nationalt håndboldfællesskab for børn og unge med funktionsnedsættelser. Takket være din støtte kan vi fortsætte vores arbejde med at skabe lykkelige øjeblikke og fællesskaber i hele landet."
+            />
+            <a
+              href={LYKKELIGA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#00b3a4] hover:text-[#00f4c8]"
+            >
+              Læs mere om LykkeLiga
+              <ArrowRight size={15} />
+            </a>
+          </div>
+
+          <LykkeLigaFacts />
         </div>
       </Section>
 
