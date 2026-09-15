@@ -59,6 +59,13 @@ const caseVideos: CaseVideoItem[] = [
     playbackId: "ef6Xug8ju2xs9LSWfOmpNSfGCrs5SXMB4C9dXFCHIoY",
     gifStart: 40,
   },
+  {
+    name: "Lidl",
+    description:
+      "Rikke & Magda gik direkte i Breaking Lykke News da Lidl besluttede at lade deres kunder støtte LykkeLiga gennem App'en Lidl Plus.",
+    playbackId: "MqPyyeDQG02UsU8I373hCGfxLatU00KXIbBQlvaxbgY02I",
+    gifStart: 19,
+  },
 ];
 
 function CaseVideoModal({
