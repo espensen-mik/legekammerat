@@ -38,6 +38,13 @@ const caseVideos: CaseVideoItem[] = [
     playbackId: "i5ZxKAYQJctPwdMHn3EEZ7SbJFyb6aHktQOWdJX01zEQ",
     gifStart: 62,
   },
+  {
+    name: "Hummel",
+    description:
+      'Sammen med Hummel og en række øvrige sponsorer lancerede LykkeLiga "Fællesskabstrøjen." Selvfølgelig sammen med én af vores største fans "Henrik Mølgaard"',
+    playbackId: "bgQ4J00R6iIVJTC01OFBnK9PerD4R7acAlZLBY601lpCGs",
+    gifStart: 17,
+  },
 ];
 
 function CaseVideoModal({
