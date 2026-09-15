@@ -9,13 +9,19 @@ type CaseVideoItem = {
   name: string;
   description: string;
   playbackId: string;
+  /** Optional start time in seconds for the animated GIF thumbnail */
+  gifStart?: number;
 };
 
 /** ~2× display width for retina; tiles are roughly 320–400px wide */
 const CASE_GIF_WIDTH = 640;
 
-function muxAnimatedGifUrl(playbackId: string) {
-  return `https://image.mux.com/${playbackId}/animated.gif?width=${CASE_GIF_WIDTH}`;
+function muxAnimatedGifUrl(playbackId: string, gifStart?: number) {
+  const params = new URLSearchParams({ width: String(CASE_GIF_WIDTH) });
+  if (typeof gifStart === "number") {
+    params.set("start", String(gifStart));
+  }
+  return `https://image.mux.com/${playbackId}/animated.gif?${params.toString()}`;
 }
 
 const caseVideos: CaseVideoItem[] = [
@@ -24,6 +30,13 @@ const caseVideos: CaseVideoItem[] = [
     description:
       "LykkeLiga-spillerne Freya og Laurits var trukket i slips og jakke da de forhandlede kontrakt med Nordeas Bankdirektør. Filmen blev årets mest sete på Nordeas interne kanaler.",
     playbackId: "57R1XCb6jKdLdNNkcRKa7wiMuXp8iv02muQnAhS02pqFk",
+  },
+  {
+    name: "Aalborg Håndbold",
+    description:
+      'Da LykkeLiga lancerede en ny ungdomssatsning udfordrede vi selveste Aalborg Håndbold til "Århundredets Håndboldkamp." Det endte med en ydmygelse!',
+    playbackId: "i5ZxKAYQJctPwdMHn3EEZ7SbJFyb6aHktQOWdJX01zEQ",
+    gifStart: 62,
   },
 ];
 
@@ -110,7 +123,7 @@ function CaseVideoTile({
         aria-label={`Afspil video: ${item.name}`}
       >
         <img
-          src={muxAnimatedGifUrl(item.playbackId)}
+          src={muxAnimatedGifUrl(item.playbackId, item.gifStart)}
           alt=""
           className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
         />
