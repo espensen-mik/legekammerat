@@ -6,7 +6,7 @@ import { SectionHeading } from "@/src/components/section-heading";
 
 const RESEARCH_PLAYBACK_ID = "vx2rM2jqpcR8IRn7AWeEhnlrOtBQIJ6nOAy5GNbigCk";
 /** ~2× a medium ~720px-wide 16:9 player */
-const RESEARCH_POSTER_URL = `https://image.mux.com/${RESEARCH_PLAYBACK_ID}/thumbnail.png?width=1440&height=810&time=32`;
+const RESEARCH_POSTER_URL = `https://image.mux.com/${RESEARCH_PLAYBACK_ID}/thumbnail.png?width=1440&height=810&time=33`;
 
 export function LaunchResearchSection() {
   return (
