@@ -71,7 +71,7 @@ export function LaunchCharlotteFloat() {
                 Charlotte sidder klar til at fortælle mere om vores partnerskaber. Ring til hende på{" "}
                 <a
                   href={CHARLOTTE_PHONE_HREF}
-                  className="font-semibold text-[#00f4c8] underline decoration-[#00b3a4]/50 underline-offset-2 hover:text-[#00f4c8]"
+                  className="whitespace-nowrap font-semibold text-[#00f4c8] underline decoration-[#00b3a4]/50 underline-offset-2 hover:text-[#00f4c8]"
                 >
                   {CHARLOTTE_PHONE_DISPLAY}
                 </a>

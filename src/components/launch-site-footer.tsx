@@ -35,47 +35,49 @@ export function LaunchSiteFooter() {
         </div>
       </div>
 
-      <div className="mx-auto grid w-full max-w-7xl gap-10 px-6 py-14 sm:px-10 md:grid-cols-2">
-        <div className="space-y-4">
-          <Image
-            src="/lykkeliga-logo.svg"
-            alt="LykkeLiga"
-            width={140}
-            height={36}
-            className="h-8 w-auto object-contain brightness-0 invert"
-          />
-          <p className="max-w-md text-sm leading-relaxed text-white/65">
-            LykkeLiga er et nationalt håndboldfællesskab for børn og unge med funktionsnedsættelser.
-            Velkommen i en helt anden liga.
-          </p>
-          <a
-            href={KONTAKT_HREF}
-            className="inline-flex items-center gap-1.5 rounded-full bg-[#e07a6a] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white hover:bg-[#d46b5c]"
-          >
-            <Heart size={13} />
-            Book en snak
-          </a>
-        </div>
-
-        <div>
-          <p className="text-sm font-semibold text-[#00b3a4]">Kontakt</p>
-          <div className="mt-4 space-y-3 text-sm text-white/75">
-            <a href="tel:53803017" className="flex items-center gap-2 hover:text-white">
-              <Phone size={15} className="text-[#00b3a4]" />
-              53 80 30 17
-            </a>
-            <a href="mailto:info@lykkeliga.dk" className="flex items-center gap-2 hover:text-white">
-              <Mail size={15} className="text-[#00b3a4]" />
-              info@lykkeliga.dk
-            </a>
+      <div className="mx-auto w-full max-w-7xl px-6 py-12 sm:px-10 sm:py-14">
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+          <div className="max-w-md space-y-4">
+            <Image
+              src="/lykkeliga-logo.svg"
+              alt="LykkeLiga"
+              width={140}
+              height={36}
+              className="h-8 w-auto object-contain brightness-0 invert"
+            />
+            <p className="text-sm leading-relaxed text-white/65">
+              LykkeLiga er et nationalt håndboldfællesskab for børn og unge med funktionsnedsættelser.
+              Velkommen i en helt anden liga.
+            </p>
             <a
-              href={LYKKELIGA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white"
+              href={KONTAKT_HREF}
+              className="inline-flex items-center gap-1.5 rounded-full bg-[#e07a6a] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white hover:bg-[#d46b5c]"
             >
-              lykkeliga.dk
+              <Heart size={13} />
+              Book en snak
             </a>
+          </div>
+
+          <div className="shrink-0 lg:min-w-[14rem]">
+            <p className="text-sm font-semibold text-[#00b3a4]">Kontakt</p>
+            <div className="mt-4 space-y-3 text-sm text-white/75">
+              <a href="tel:53803017" className="flex items-center gap-2 hover:text-white">
+                <Phone size={15} className="shrink-0 text-[#00b3a4]" />
+                53 80 30 17
+              </a>
+              <a href="mailto:info@lykkeliga.dk" className="flex items-center gap-2 hover:text-white">
+                <Mail size={15} className="shrink-0 text-[#00b3a4]" />
+                info@lykkeliga.dk
+              </a>
+              <a
+                href={LYKKELIGA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block pl-7 hover:text-white"
+              >
+                lykkeliga.dk
+              </a>
+            </div>
           </div>
         </div>
       </div>
