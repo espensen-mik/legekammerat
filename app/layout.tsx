@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Plus_Jakarta_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import { SiteHeader } from "@/src/components/site-header";
 import { SiteFooter } from "@/src/components/site-footer";
 import { LaunchSiteHeader } from "@/src/components/launch-site-header";
@@ -43,6 +44,7 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col bg-[#07111d] text-zinc-50">
         {isLaunchMode ? <LaunchContactProvider>{body}</LaunchContactProvider> : body}
+        <Analytics />
       </body>
     </html>
   );
