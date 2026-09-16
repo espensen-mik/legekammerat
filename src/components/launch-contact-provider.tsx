@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { ContactModal } from "@/src/components/contact-modal";
+import { LaunchCharlotteFloat } from "@/src/components/launch-charlotte-float";
 import {
   contactHref,
   contactInterestFromHash,
@@ -89,6 +90,7 @@ export function LaunchContactProvider({ children }: { children: ReactNode }) {
       {children}
       <span id={KONTAKT_ANCHOR} className="sr-only" tabIndex={-1} aria-hidden="true" />
       <ContactModal isOpen={isOpen} onClose={closeModal} initialInterest={initialInterest} />
+      <LaunchCharlotteFloat />
     </>
   );
 }

@@ -63,3 +63,10 @@ html {
   width: 100%;
   height: 100%;
 }
+
+@media (max-width: 639px) {
+  .launch-hero-video mux-player {
+    --media-object-fit: cover;
+    --media-object-position: center center;
+  }
+}

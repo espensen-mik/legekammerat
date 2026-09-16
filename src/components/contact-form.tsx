@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import Image from "next/image";
 import {
   CONTACT_INTEREST_OPTIONS,
   type ContactInterest,
@@ -22,7 +23,7 @@ type FormErrors = Partial<Record<keyof FormState, string>>;
 const SUBMIT_ERROR_MESSAGE =
   "Din besked kunne ikke sendes. Prøv igen, eller kontakt os direkte på e-mail.";
 const SUCCESS_MESSAGE =
-  "1000 tak for din interesse i LykkeLiga. Vi vender straks tilbage med masser af lykke!";
+  "Tak for din interesse i LykkeLiga. Du bliver kontaktet af Charlotte";
 
 function createInitialForm(initialInterest?: ContactInterest): FormState {
   return {
@@ -151,6 +152,13 @@ export function ContactForm({
   if (status === "success") {
     return (
       <div className="flex min-h-[280px] flex-col items-center justify-center px-2 py-10 text-center sm:min-h-[320px] sm:px-6">
+        <Image
+          src="/charlotte.jpg"
+          alt="Charlotte"
+          width={112}
+          height={112}
+          className="mb-5 h-20 w-20 rounded-full object-cover ring-2 ring-[#00b3a4]/45 sm:mb-6 sm:h-24 sm:w-24"
+        />
         <p
           ref={statusRef}
           id={`${idPrefix}-form-status`}

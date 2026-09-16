@@ -12,7 +12,7 @@ export function LaunchHero() {
 
   return (
     <section className="relative min-h-[32rem] w-full overflow-hidden bg-[#06111c] sm:aspect-video sm:min-h-0">
-      <div className="hero-video absolute inset-0">
+      <div className="launch-hero-video hero-video absolute inset-0">
         <MuxPlayer
           playbackId="rjy79le010243vQ8Cgs1RWq01ZuPqo1Ft5SwtHdyjWsNyw"
           streamType="on-demand"
